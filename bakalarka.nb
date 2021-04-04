@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     78555,       1792]
-NotebookOptionsPosition[     76699,       1730]
-NotebookOutlinePosition[     77164,       1748]
-CellTagsIndexPosition[     77121,       1745]
+NotebookDataLength[     78375,       1790]
+NotebookOptionsPosition[     76618,       1730]
+NotebookOutlinePosition[     76983,       1746]
+CellTagsIndexPosition[     76940,       1743]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28,8 +28,11 @@ Cell[BoxData[{
   RowBox[{"5", ",", "7"}], "]"}]}], "Input",
  CellChangeTimes->{{3.826527265868931*^9, 3.8265273507228036`*^9}}],
 
-Cell[BoxData["12"], "Output",
- CellChangeTimes->{{3.8265273018670487`*^9, 3.826527353893916*^9}}]
+Cell[BoxData[
+ RowBox[{"myAdd", "[", 
+  RowBox[{"5", ",", "7"}], "]"}]], "Output",
+ CellChangeTimes->{{3.8265273018670487`*^9, 3.826527353893916*^9}, 
+   3.826549302482414*^9}]
 }, Open  ]],
 
 Cell["\<\
@@ -44,168 +47,166 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"transformToSubtraction", "[", 
    RowBox[{"coefficient_", ",", "remainder_", ",", "unknownVariable_"}], 
-   "]"}], " ", ":=", "\[IndentingNewLine]", 
+   "]"}], " ", ":=", "\n", 
   RowBox[{"Module", "[", 
    RowBox[{
     RowBox[{"{", 
      RowBox[{"sum", ",", "newRemainder", ",", "newCoefficient", ",", "temp"}],
-      "}"}], ",", "\[IndentingNewLine]", 
+      "}"}], ",", "\n", 
     RowBox[{
      RowBox[{"sum", " ", "=", " ", 
       RowBox[{
        RowBox[{"coefficient", " ", "*", " ", "unknownVariable"}], " ", "+", 
-       " ", "remainder"}]}], ";", "\[IndentingNewLine]", 
+       " ", "remainder"}]}], ";", "\n", 
      RowBox[{"While", "[", 
       RowBox[{
        RowBox[{
         RowBox[{"coefficient", " ", "*", " ", "unknownVariable"}], " ", "<", 
-        " ", "sum"}], ",", "\[IndentingNewLine]", 
+        " ", "sum"}], ",", "\n", 
        RowBox[{
-        RowBox[{"coefficient", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
-     ";", "\[IndentingNewLine]", 
+        RowBox[{"coefficient", "++"}], ";"}]}], "\n", "]"}], ";", "\n", 
      RowBox[{"remainder", " ", "=", " ", 
       RowBox[{"sum", " ", "-", " ", 
        RowBox[{"coefficient", " ", "*", " ", "unknownVariable"}]}]}], ";", 
-     "\[IndentingNewLine]", 
+     "\n", 
      RowBox[{"Return", "[", 
       RowBox[{"List", "[", 
-       RowBox[{"coefficient", ",", "remainder"}], "]"}], "]"}]}]}], 
-   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+       RowBox[{"coefficient", ",", "remainder"}], "]"}], "]"}]}]}], "\n", 
+   "]"}]}], "\n", 
  RowBox[{
   RowBox[{"SetAttributes", "[", 
-   RowBox[{"transformToSubtraction", ",", "HoldAll"}], "]"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+   RowBox[{"transformToSubtraction", ",", "HoldAll"}], "]"}], "\n"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{"maskValue", "[", "number_", "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"maskValue", "[", "number_", "]"}], ":=", "\n", 
    RowBox[{"Module", "[", 
     RowBox[{
      RowBox[{"{", 
       RowBox[{
       "expression", ",", "unknownVariable", ",", "coefficient", ",", 
        "remainder", ",", "transformChance", ",", "transformedValues"}], "}"}],
-      ",", "\[IndentingNewLine]", "\t", 
-     RowBox[{
-      RowBox[{"unknownVariable", " ", "=", " ", 
-       RowBox[{"RandomInteger", "[", 
-        RowBox[{"{", 
-         RowBox[{"2", ",", 
-          RowBox[{"Quotient", "[", 
-           RowBox[{"number", ",", "2"}], "]"}]}], "}"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", "\t", 
-      RowBox[{"coefficient", " ", "=", " ", 
-       RowBox[{"Quotient", "[", 
-        RowBox[{"number", ",", "unknownVariable"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", "\t", 
-      RowBox[{"remainder", " ", "=", " ", 
-       RowBox[{"Mod", "[", 
-        RowBox[{"number", ",", "unknownVariable"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", "\t", 
-      RowBox[{"transformChance", " ", "=", " ", 
-       RowBox[{"RandomInteger", "[", 
-        RowBox[{"{", 
-         RowBox[{"1", ",", "2"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
-      "\t", 
-      RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"transformChance", " ", "\[Equal]", " ", "2"}], ",", " ", 
-        "\[IndentingNewLine]", "\t", 
-        RowBox[{
-         RowBox[{"transformedValues", " ", "=", " ", 
-          RowBox[{"transformToSubtraction", "[", 
-           RowBox[{"coefficient", ",", "remainder", ",", "unknownVariable"}], 
-           "]"}]}], ";", "\[IndentingNewLine]", "\t", 
-         RowBox[{"coefficient", " ", "=", " ", 
-          RowBox[{"Part", "[", 
-           RowBox[{"transformedValues", ",", "1"}], "]"}]}], ";", 
-         "\[IndentingNewLine]", "\t", 
-         RowBox[{"remainder", " ", "=", " ", 
-          RowBox[{"Part", "[", 
-           RowBox[{"transformedValues", ",", "2"}], "]"}]}]}]}], 
-       "\[IndentingNewLine]", "\t", "]"}], ";", "\[IndentingNewLine]", 
-      "\[IndentingNewLine]", "\t", 
-      RowBox[{"expression", " ", "=", " ", 
-       RowBox[{
-        RowBox[{"coefficient", "*", "x"}], "+", "remainder"}]}], ";", 
-      "\[IndentingNewLine]", "\t", 
-      RowBox[{"Return", "[", 
-       RowBox[{"List", "[", 
-        RowBox[{"expression", ",", "unknownVariable"}], "]"}], "]"}]}]}], 
-    "\[IndentingNewLine]", "]"}]}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"generateEquation", "[", "]"}], ":=", "\[IndentingNewLine]", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-     "result", ",", "body", ",", "base", ",", "returnValues", ",", 
-      "maskedBody", ",", "results", ",", "equation", ",", "xValue"}], "}"}], 
-    ",", "\[IndentingNewLine]", "\t", 
-    RowBox[{
-     RowBox[{"results", " ", "=", " ", 
-      RowBox[{"Range", "[", "6", "]"}]}], ";", "\[IndentingNewLine]", "\t", 
+      ",", "\n", "\t", 
      RowBox[{"While", "[", 
-      RowBox[{"True", ",", "\[IndentingNewLine]", "\t", 
+      RowBox[{"True", ",", "\n", "\t", 
        RowBox[{
-        RowBox[{"base", " ", "=", " ", 
+        RowBox[{"unknownVariable", " ", "=", " ", 
          RowBox[{"RandomInteger", "[", 
           RowBox[{"{", 
-           RowBox[{"2", ",", "10"}], "}"}], "]"}]}], ";", 
-        "\[IndentingNewLine]", "\t", 
-        RowBox[{"body", " ", "=", " ", 
-         RowBox[{"RandomInteger", "[", 
-          RowBox[{"{", 
-           RowBox[{"2", ",", "1000"}], "}"}], "]"}]}], ";", 
-        "\[IndentingNewLine]", "\t", 
-        RowBox[{"result", " ", "=", " ", 
-         RowBox[{"Log", "[", 
-          RowBox[{"base", ",", "body"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"2", ",", 
+            RowBox[{"Min", "[", 
+             RowBox[{"5", ",", "number"}], "]"}]}], "}"}], "]"}]}], ";", "\n",
+         "\t", 
+        RowBox[{"coefficient", " ", "=", " ", 
+         RowBox[{"Quotient", "[", 
+          RowBox[{"number", ",", "unknownVariable"}], "]"}]}], ";", "\n", 
         "\t", 
+        RowBox[{"remainder", " ", "=", " ", 
+         RowBox[{"Mod", "[", 
+          RowBox[{"number", ",", "unknownVariable"}], "]"}]}], ";", "\n", 
+        "\n", "\t", 
+        RowBox[{"transformChance", " ", "=", " ", 
+         RowBox[{"RandomInteger", "[", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "2"}], "}"}], "]"}]}], ";", "\n", "\t", 
         RowBox[{"If", "[", 
          RowBox[{
-          RowBox[{"MemberQ", "[", 
-           RowBox[{"results", ",", "result"}], "]"}], ",", 
-          "\[IndentingNewLine]", "\t\t", 
+          RowBox[{"transformChance", " ", "==", " ", "2"}], ",", " ", "\n", 
+          "\t", 
           RowBox[{
-           RowBox[{"returnValues", " ", "=", " ", 
-            RowBox[{"maskValue", "[", "body", "]"}]}], ";", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"maskedBody", " ", "=", " ", 
+           RowBox[{"transformedValues", " ", "=", " ", 
+            RowBox[{"transformToSubtraction", "[", 
+             RowBox[{
+             "coefficient", ",", "remainder", ",", "unknownVariable"}], 
+             "]"}]}], ";", "\n", "\t", 
+           RowBox[{"coefficient", " ", "=", " ", 
             RowBox[{"Part", "[", 
-             RowBox[{"returnValues", ",", "1"}], "]"}]}], ";", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"xValue", " ", "=", " ", 
+             RowBox[{"transformedValues", ",", "1"}], "]"}]}], ";", "\n", 
+           "\t", 
+           RowBox[{"remainder", " ", "=", " ", 
             RowBox[{"Part", "[", 
-             RowBox[{"returnValues", ",", "2"}], "]"}]}], ";", 
-           "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"equation", " ", "=", " ", 
+             RowBox[{"transformedValues", ",", "2"}], "]"}]}]}]}], "\n", "\t",
+          "]"}], ";", "\n", "\t", "\n", "\t", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"remainder", " ", "==", " ", "0"}], ",", 
+          RowBox[{"Continue", "[", "]"}]}], "]"}], ";", "\n", "\n", "\t", 
+        RowBox[{"expression", " ", "=", " ", 
+         RowBox[{
+          RowBox[{"coefficient", "*", "x"}], "+", "remainder"}]}], ";", "\n", 
+        "\t", 
+        RowBox[{"Return", "[", 
+         RowBox[{"List", "[", 
+          RowBox[{"expression", ",", "unknownVariable"}], "]"}], "]"}]}]}], 
+      "\n", "]"}]}], "\n", "]"}]}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"generateSimpleLogarithmicEquation", "[", "]"}], ":=", "\n", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "result", ",", "body", ",", "base", ",", "returnValues", ",", 
+       "maskedBody", ",", "results", ",", "equation", ",", "xValue"}], "}"}], 
+     ",", "\n", "\t", 
+     RowBox[{
+      RowBox[{"results", " ", "=", " ", 
+       RowBox[{"Range", "[", "6", "]"}]}], ";", "\n", "\t", 
+      RowBox[{"While", "[", 
+       RowBox[{"True", ",", "\n", "\t", 
+        RowBox[{
+         RowBox[{"base", " ", "=", " ", 
+          RowBox[{"RandomInteger", "[", 
+           RowBox[{"{", 
+            RowBox[{"2", ",", "10"}], "}"}], "]"}]}], ";", "\n", "\t", 
+         RowBox[{"body", " ", "=", " ", 
+          RowBox[{"RandomInteger", "[", 
+           RowBox[{"{", 
             RowBox[{
-             RowBox[{"Log", "[", 
-              RowBox[{"base", ",", "maskedBody"}], "]"}], " ", "\[Equal]", 
-             " ", "result"}]}], ";", "\[IndentingNewLine]", "\t\t", 
-           RowBox[{"Return", "[", 
-            RowBox[{"List", "[", 
-             RowBox[{"equation", ",", "xValue"}], "]"}], "]"}]}]}], 
-         "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}]}], 
-   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+             RowBox[{"base", "+", "1"}], ",", "1000"}], "}"}], "]"}]}], ";", 
+         "\n", "\t", 
+         RowBox[{"result", " ", "=", " ", 
+          RowBox[{"Log", "[", 
+           RowBox[{"base", ",", "body"}], "]"}]}], ";", "\n", "\t", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"MemberQ", "[", 
+            RowBox[{"results", ",", "result"}], "]"}], ",", "\n", "\t\t", 
+           RowBox[{
+            RowBox[{"returnValues", " ", "=", " ", 
+             RowBox[{"maskValue", "[", "body", "]"}]}], ";", "\n", "\t\t", 
+            RowBox[{"maskedBody", " ", "=", " ", 
+             RowBox[{"Part", "[", 
+              RowBox[{"returnValues", ",", "1"}], "]"}]}], ";", "\n", "\t\t", 
+            RowBox[{"xValue", " ", "=", " ", 
+             RowBox[{"Part", "[", 
+              RowBox[{"returnValues", ",", "2"}], "]"}]}], ";", "\n", "\t\t", 
+            RowBox[{"equation", " ", "=", " ", 
+             RowBox[{
+              RowBox[{"Log", "[", 
+               RowBox[{"base", ",", "maskedBody"}], "]"}], " ", "==", " ", 
+              "result"}]}], ";", "\n", "\t\t", 
+            RowBox[{"Return", "[", 
+             RowBox[{"List", "[", 
+              RowBox[{"equation", ",", "xValue"}], "]"}], "]"}]}]}], "\n", 
+          "]"}]}]}], "\n", "]"}]}]}], "\n", "]"}]}], 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{"EquationAndXValue", " ", "=", " ", 
-  RowBox[{"generateEquation", "[", "]"}]}], "\[IndentingNewLine]", 
+  RowBox[{
+  "generateSimpleLogarithmicEquation", "[", "]"}]}], "\[IndentingNewLine]", 
  RowBox[{"equation", " ", "=", " ", 
   RowBox[{"Part", "[", 
    RowBox[{"EquationAndXValue", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
  RowBox[{"xValue", " ", "=", " ", 
   RowBox[{"Part", "[", 
    RowBox[{"EquationAndXValue", ",", "2"}], "]"}]}]}], "Input",
- CellChangeTimes->{{3.8265236049311724`*^9, 3.8265239979746585`*^9}, {
-  3.82652404703633*^9, 3.82652429409295*^9}, {3.8265244139741726`*^9, 
-  3.826524508434635*^9}, {3.826524556421499*^9, 3.8265245578899064`*^9}, {
-  3.8265247021723285`*^9, 3.8265247576727924`*^9}, {3.8265250478075066`*^9, 
-  3.8265251260769234`*^9}, {3.8265252656840057`*^9, 3.826525285905452*^9}, {
-  3.8265253173819246`*^9, 3.8265253250955696`*^9}, {3.8265254256954823`*^9, 
-  3.8265254566858125`*^9}, {3.8265255638708196`*^9, 3.826525570452639*^9}, {
-  3.826525674391352*^9, 3.826525675609829*^9}, {3.8265257101405506`*^9, 
-  3.826525820250956*^9}, {3.8265282467613316`*^9, 3.8265284285228653`*^9}}],
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBmIQrXVm7q7mpjeO6Qb7X4PoeZoPP4Loop+HBFqAdI7O
+fnkQ3fGiVxtEv67pNQTRslV7wPT25qPOILqlfasXiJa4/jMPRGuUHaoA0QmP
+TbtAdNnPPT0gepfFmgkg+gXf4okgOsXRbB6I1v0kughEH7xbvR5Es9b4bQDR
+X1t99oLoHc3FYDql/shBEH2VveM8iL4Sc+NfK5AO2D1BtA1IX5DYxdAPpJc0
+i7CA6LgjgtwgWuYShwCI9rn4LwBE2y3PDQbRPw4xRYPoDX2hYPqse2oiiF7x
+ORtMy8+Ti50ApB2+aoBpAF49olE=
+  "]],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -213,36 +214,34 @@ Cell[BoxData[
    RowBox[{
     FractionBox[
      RowBox[{"Log", "[", 
-      RowBox[{"27", " ", "x"}], "]"}], 
-     RowBox[{"Log", "[", "6", "]"}]], "\[Equal]", "3"}], ",", "8"}], 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", 
+       RowBox[{"9", " ", "x"}]}], "]"}], 
+     RowBox[{"Log", "[", "5", "]"}]], "\[Equal]", "2"}], ",", "3"}], 
   "}"}]], "Output",
- CellChangeTimes->{{3.826524898913186*^9, 3.826524927320628*^9}, {
-   3.826525133750825*^9, 3.826525173487962*^9}, 3.826525287030184*^9, {
-   3.8265253269388485`*^9, 3.8265253715070953`*^9}, 3.826525458709593*^9, {
-   3.826525573623762*^9, 3.8265256467969465`*^9}, {3.8265257193378134`*^9, 
-   3.826525793915573*^9}, 3.8265258241377373`*^9, {3.8265284074560385`*^9, 
-   3.8265284339675407`*^9}}],
+ CellChangeTimes->{{3.826548846872046*^9, 3.8265488849650745`*^9}, {
+   3.82654891510027*^9, 3.826548928378126*^9}, 3.8265492003334227`*^9, {
+   3.82654928624203*^9, 3.826549339440591*^9}, 3.8265493890594597`*^9, {
+   3.826549459348956*^9, 3.8265494855080147`*^9}}],
 
 Cell[BoxData[
  RowBox[{
   FractionBox[
    RowBox[{"Log", "[", 
-    RowBox[{"27", " ", "x"}], "]"}], 
-   RowBox[{"Log", "[", "6", "]"}]], "\[Equal]", "3"}]], "Output",
- CellChangeTimes->{{3.826524898913186*^9, 3.826524927320628*^9}, {
-   3.826525133750825*^9, 3.826525173487962*^9}, 3.826525287030184*^9, {
-   3.8265253269388485`*^9, 3.8265253715070953`*^9}, 3.826525458709593*^9, {
-   3.826525573623762*^9, 3.8265256467969465`*^9}, {3.8265257193378134`*^9, 
-   3.826525793915573*^9}, 3.8265258241377373`*^9, {3.8265284074560385`*^9, 
-   3.826528433970539*^9}}],
+    RowBox[{
+     RowBox[{"-", "2"}], "+", 
+     RowBox[{"9", " ", "x"}]}], "]"}], 
+   RowBox[{"Log", "[", "5", "]"}]], "\[Equal]", "2"}]], "Output",
+ CellChangeTimes->{{3.826548846872046*^9, 3.8265488849650745`*^9}, {
+   3.82654891510027*^9, 3.826548928378126*^9}, 3.8265492003334227`*^9, {
+   3.82654928624203*^9, 3.826549339440591*^9}, 3.8265493890594597`*^9, {
+   3.826549459348956*^9, 3.8265494855100145`*^9}}],
 
-Cell[BoxData["8"], "Output",
- CellChangeTimes->{{3.826524898913186*^9, 3.826524927320628*^9}, {
-   3.826525133750825*^9, 3.826525173487962*^9}, 3.826525287030184*^9, {
-   3.8265253269388485`*^9, 3.8265253715070953`*^9}, 3.826525458709593*^9, {
-   3.826525573623762*^9, 3.8265256467969465`*^9}, {3.8265257193378134`*^9, 
-   3.826525793915573*^9}, 3.8265258241377373`*^9, {3.8265284074560385`*^9, 
-   3.8265284339725285`*^9}}]
+Cell[BoxData["3"], "Output",
+ CellChangeTimes->{{3.826548846872046*^9, 3.8265488849650745`*^9}, {
+   3.82654891510027*^9, 3.826548928378126*^9}, 3.8265492003334227`*^9, {
+   3.82654928624203*^9, 3.826549339440591*^9}, 3.8265493890594597`*^9, {
+   3.826549459348956*^9, 3.826549485511012*^9}}]
 }, Open  ]],
 
 Cell["\<\
@@ -256,301 +255,274 @@ najzlozitejsiu\
 
 Cell[CellGroupData[{
 
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"transformToSubtraction", "[", 
-   RowBox[{"coefficient_", ",", "remainder_", ",", "unknownVariable_"}], 
-   "]"}], " ", ":=", "\[IndentingNewLine]", 
-  RowBox[{"Module", "[", 
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
    RowBox[{
-    RowBox[{"{", 
-     RowBox[{"sum", ",", "newRemainder", ",", "newCoefficient", ",", "temp"}],
-      "}"}], ",", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"sum", " ", "=", " ", 
-      RowBox[{
-       RowBox[{"coefficient", " ", "*", " ", "unknownVariable"}], " ", "+", 
-       " ", "remainder"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"While", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"coefficient", " ", "*", " ", "unknownVariable"}], " ", "<", 
-        " ", "sum"}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"coefficient", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
-     ";", "\[IndentingNewLine]", 
-     RowBox[{"remainder", " ", "=", " ", 
-      RowBox[{"sum", " ", "-", " ", 
-       RowBox[{"coefficient", " ", "*", " ", "unknownVariable"}]}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"Return", "[", 
-      RowBox[{"List", "[", 
-       RowBox[{"coefficient", ",", "remainder"}], "]"}], "]"}]}]}], 
-   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"SetAttributes", "[", 
-   RowBox[{"transformToSubtraction", ",", "HoldAll"}], "]"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"maskNumbers", "[", 
-    RowBox[{"number1_", ",", "number2_"}], "]"}], " ", ":=", " ", 
-   RowBox[{"Module", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-      "smallerNumber", ",", "unknownVariable", ",", " ", "coefficient1", ",", 
-       " ", "remainder1", ",", " ", "coefficient2", ",", " ", "remainder2", 
-       ",", " ", "expression1", ",", "expression2"}], "}"}], ",", 
-     "\[IndentingNewLine]", 
+    RowBox[{"transformToSubtraction", "[", 
+     RowBox[{"coefficient_", ",", "remainder_", ",", "unknownVariable_"}], 
+     "]"}], " ", ":=", "\n", 
+    RowBox[{"Module", "[", 
      RowBox[{
-      RowBox[{"smallerNumber", " ", "=", " ", 
-       RowBox[{"Min", "[", 
-        RowBox[{"number1", ",", "number2"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"unknownVariable", " ", "=", " ", 
-       RowBox[{"RandomInteger", "[", 
-        RowBox[{"{", 
-         RowBox[{"2", ",", 
-          RowBox[{"Min", "[", 
-           RowBox[{"20", ",", "smallerNumber"}], "]"}]}], "}"}], "]"}]}], ";",
-       "\[IndentingNewLine]", 
-      RowBox[{"coefficient1", " ", "=", " ", 
-       RowBox[{"Quotient", "[", 
-        RowBox[{"number1", ",", "unknownVariable"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"remainder1", " ", "=", " ", 
-       RowBox[{"Mod", "[", 
-        RowBox[{"number1", ",", "unknownVariable"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"coefficient2", " ", "=", " ", 
-       RowBox[{"Quotient", "[", 
-        RowBox[{"number2", ",", "unknownVariable"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"remainder2", " ", "=", " ", 
-       RowBox[{"Mod", "[", 
-        RowBox[{"number2", ",", "unknownVariable"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-      RowBox[{"transformChance", " ", "=", " ", 
-       RowBox[{"RandomInteger", "[", 
-        RowBox[{"{", 
-         RowBox[{"1", ",", "2"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
+      RowBox[{"{", 
        RowBox[{
-        RowBox[{"transformChance", " ", "\[Equal]", " ", "2"}], ",", 
-        RowBox[{
-         RowBox[{"transformedValues", " ", "=", " ", 
-          RowBox[{"transformToSubtraction", "[", 
-           RowBox[{
-           "coefficient1", ",", "remainder1", ",", "unknownVariable"}], 
-           "]"}]}], ";", "\[IndentingNewLine]", 
-         RowBox[{"coefficient1", " ", "=", " ", 
-          RowBox[{"Part", "[", 
-           RowBox[{"transformedValues", ",", "1"}], "]"}]}], ";", 
-         "\[IndentingNewLine]", 
-         RowBox[{"remainder1", " ", "=", " ", 
-          RowBox[{"Part", "[", 
-           RowBox[{"transformedValues", ",", "2"}], "]"}]}], ";"}]}], 
-       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"transformChance", " ", "=", " ", 
-       RowBox[{"RandomInteger", "[", 
-        RowBox[{"{", 
-         RowBox[{"1", ",", "2"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"transformChance", " ", "\[Equal]", " ", "2"}], ",", 
-        RowBox[{
-         RowBox[{"transformedValues", " ", "=", " ", 
-          RowBox[{"transformToSubtraction", "[", 
-           RowBox[{
-           "coefficient2", ",", "remainder2", ",", "unknownVariable"}], 
-           "]"}]}], ";", "\[IndentingNewLine]", 
-         RowBox[{"coefficient2", " ", "=", " ", 
-          RowBox[{"Part", "[", 
-           RowBox[{"transformedValues", ",", "1"}], "]"}]}], ";", 
-         "\[IndentingNewLine]", 
-         RowBox[{"remainder2", " ", "=", " ", 
-          RowBox[{"Part", "[", 
-           RowBox[{"transformedValues", ",", "2"}], "]"}]}]}]}], 
-       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-      "\[IndentingNewLine]", 
-      RowBox[{"expression1", " ", "=", " ", 
-       RowBox[{
-        RowBox[{"coefficient1", "*", "x"}], "+", "remainder1"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"expression2", " ", "=", " ", 
-       RowBox[{
-        RowBox[{"coefficient2", "*", "x"}], "+", "remainder2"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"Return", "[", 
-       RowBox[{"List", "[", 
-        RowBox[{
-        "expression1", ",", "expression2", ",", "unknownVariable", ",", 
-         "remainder1", ",", "remainder2"}], "]"}], "]"}]}]}], 
-    "\[IndentingNewLine]", "]"}]}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"calculateFitness", "[", 
-    RowBox[{"remainder1_", ",", "remainder2_", ",", "base_", ",", "result_"}],
-     "]"}], " ", ":=", "\[IndentingNewLine]", "\t", 
-   RowBox[{"Return", "[", 
-    RowBox[{
-     RowBox[{"Abs", "[", "remainder1", "]"}], " ", "+", " ", 
-     RowBox[{"Abs", "[", "remainder2", "]"}], " ", "+", " ", "base", " ", "+",
-      " ", "result"}], "]"}]}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"makeString", "[", 
-    RowBox[{"base_", ",", "body1_", ",", " ", "body2_", ",", " ", "result_"}],
-     "]"}], ":=", " ", 
-   RowBox[{"Return", "[", 
-    RowBox[{"HoldForm", "[", 
-     RowBox[{
+       "sum", ",", "newRemainder", ",", "newCoefficient", ",", "temp"}], 
+       "}"}], ",", "\n", 
       RowBox[{
-       RowBox[{"Log", "[", 
-        RowBox[{"base", ",", "body1"}], "]"}], " ", "+", " ", 
-       RowBox[{"Log", "[", 
-        RowBox[{"base", ",", "body2"}], "]"}]}], " ", "==", " ", "result"}], 
-     "]"}], "]"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"generateEquation", "[", "]"}], ":=", "\[IndentingNewLine]", 
-   RowBox[{"Module", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-      "base", ",", "body1", ",", "body2", ",", "result", ",", "returnValues", 
-       ",", "maskedBody1", ",", "maskedBody2", ",", "unknownVariable", ",", 
-       " ", "fitness", ",", "remainder1", ",", "remainder2", ",", "results", 
-       ",", "possibleEquations", ",", "fitnessFunctions", ",", "xValues", ",",
-        "xValue", ",", "equation", ",", "maxFitness", ",", "position"}], 
-      "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"sum", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"coefficient", " ", "*", " ", "unknownVariable"}], " ", "+", 
+         " ", "remainder"}]}], ";", "\n", 
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"coefficient", " ", "*", " ", "unknownVariable"}], " ", "<",
+           " ", "sum"}], ",", "\n", 
+         RowBox[{
+          RowBox[{"coefficient", "++"}], ";"}]}], "\n", "]"}], ";", "\n", 
+       RowBox[{"remainder", " ", "=", " ", 
+        RowBox[{"sum", " ", "-", " ", 
+         RowBox[{"coefficient", " ", "*", " ", "unknownVariable"}]}]}], ";", 
+       "\n", 
+       RowBox[{"Return", "[", 
+        RowBox[{"List", "[", 
+         RowBox[{"coefficient", ",", "remainder"}], "]"}], "]"}]}]}], "\n", 
+     "]"}]}], "\n", 
+   RowBox[{"SetAttributes", "[", 
+    RowBox[{"transformToSubtraction", ",", "HoldAll"}], "]"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"maskNumbers", "[", 
+     RowBox[{"number1_", ",", "number2_"}], "]"}], " ", ":=", " ", 
+    RowBox[{"Module", "[", 
      RowBox[{
-      RowBox[{"results", " ", "=", " ", 
-       RowBox[{"Range", "[", "30", "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"possibleEquations", " ", "=", " ", 
-       RowBox[{"List", "[", "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"fitnessFunctions", " ", "=", " ", 
-       RowBox[{"List", "[", "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"xValues", " ", "=", " ", 
-       RowBox[{"List", "[", "]"}]}], ";", "\[IndentingNewLine]", 
-      "\[IndentingNewLine]", 
-      RowBox[{"While", "[", 
+      RowBox[{"{", 
        RowBox[{
+       "smallerNumber", ",", "unknownVariable", ",", " ", "coefficient1", ",",
+         " ", "remainder1", ",", " ", "coefficient2", ",", " ", "remainder2", 
+        ",", " ", "expression1", ",", "expression2"}], "}"}], ",", "\n", 
+      RowBox[{
+       RowBox[{"smallerNumber", " ", "=", " ", 
+        RowBox[{"Min", "[", 
+         RowBox[{"number1", ",", "number2"}], "]"}]}], ";", "\n", 
+       RowBox[{"unknownVariable", " ", "=", " ", 
+        RowBox[{"RandomInteger", "[", 
+         RowBox[{"{", 
+          RowBox[{"2", ",", 
+           RowBox[{"Min", "[", 
+            RowBox[{"20", ",", "smallerNumber"}], "]"}]}], "}"}], "]"}]}], 
+       ";", "\n", 
+       RowBox[{"coefficient1", " ", "=", " ", 
+        RowBox[{"Quotient", "[", 
+         RowBox[{"number1", ",", "unknownVariable"}], "]"}]}], ";", "\n", 
+       RowBox[{"remainder1", " ", "=", " ", 
+        RowBox[{"Mod", "[", 
+         RowBox[{"number1", ",", "unknownVariable"}], "]"}]}], ";", "\n", 
+       RowBox[{"coefficient2", " ", "=", " ", 
+        RowBox[{"Quotient", "[", 
+         RowBox[{"number2", ",", "unknownVariable"}], "]"}]}], ";", "\n", 
+       RowBox[{"remainder2", " ", "=", " ", 
+        RowBox[{"Mod", "[", 
+         RowBox[{"number2", ",", "unknownVariable"}], "]"}]}], ";", "\n", 
+       "\n", "\n", 
+       RowBox[{"transformChance", " ", "=", " ", 
+        RowBox[{"RandomInteger", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}], "]"}]}], ";", "\n", 
+       RowBox[{"If", "[", 
         RowBox[{
-         RowBox[{"Length", "[", "possibleEquations", "]"}], " ", "<", " ", 
-         "100"}], ",", "\[IndentingNewLine]", "\t", 
+         RowBox[{"transformChance", " ", "==", " ", "2"}], ",", 
+         RowBox[{
+          RowBox[{"transformedValues", " ", "=", " ", 
+           RowBox[{"transformToSubtraction", "[", 
+            RowBox[{
+            "coefficient1", ",", "remainder1", ",", "unknownVariable"}], 
+            "]"}]}], ";", "\n", 
+          RowBox[{"coefficient1", " ", "=", " ", 
+           RowBox[{"Part", "[", 
+            RowBox[{"transformedValues", ",", "1"}], "]"}]}], ";", "\n", 
+          RowBox[{"remainder1", " ", "=", " ", 
+           RowBox[{"Part", "[", 
+            RowBox[{"transformedValues", ",", "2"}], "]"}]}], ";"}]}], "\n", 
+        "]"}], ";", "\n", 
+       RowBox[{"transformChance", " ", "=", " ", 
+        RowBox[{"RandomInteger", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}], "]"}]}], ";", "\n", 
+       RowBox[{"If", "[", 
         RowBox[{
-         RowBox[{"base", " ", "=", " ", 
-          RowBox[{"RandomInteger", "[", 
-           RowBox[{"{", 
-            RowBox[{"2", ",", "10"}], "}"}], "]"}]}], ";", 
-         "\[IndentingNewLine]", "\t", 
-         RowBox[{"body1", " ", "=", " ", 
-          RowBox[{"RandomInteger", "[", 
-           RowBox[{"{", 
-            RowBox[{"2", ",", "1000"}], "}"}], "]"}]}], ";", 
-         "\[IndentingNewLine]", "\t", 
-         RowBox[{"body2", " ", "=", " ", 
-          RowBox[{"RandomInteger", "[", 
-           RowBox[{"{", 
-            RowBox[{"2", ",", 
-             RowBox[{"body1", "-", "1"}]}], "}"}], "]"}]}], ";", 
-         "\[IndentingNewLine]", "\t", 
-         RowBox[{"result", " ", "=", " ", 
-          RowBox[{
-           RowBox[{"Log", "[", 
-            RowBox[{"base", ",", "body1"}], "]"}], " ", "+", " ", 
-           RowBox[{"Log", "[", 
-            RowBox[{"base", ",", "body2"}], "]"}]}]}], ";", 
-         "\[IndentingNewLine]", "\t", 
-         RowBox[{"If", "[", 
-          RowBox[{
-           RowBox[{"MemberQ", "[", 
-            RowBox[{"results", ",", "result"}], "]"}], ",", 
-           "\[IndentingNewLine]", "\t\t", 
+         RowBox[{"transformChance", " ", "==", " ", "2"}], ",", 
+         RowBox[{
+          RowBox[{"transformedValues", " ", "=", " ", 
+           RowBox[{"transformToSubtraction", "[", 
+            RowBox[{
+            "coefficient2", ",", "remainder2", ",", "unknownVariable"}], 
+            "]"}]}], ";", "\n", 
+          RowBox[{"coefficient2", " ", "=", " ", 
+           RowBox[{"Part", "[", 
+            RowBox[{"transformedValues", ",", "1"}], "]"}]}], ";", "\n", 
+          RowBox[{"remainder2", " ", "=", " ", 
+           RowBox[{"Part", "[", 
+            RowBox[{"transformedValues", ",", "2"}], "]"}]}]}]}], "\n", "]"}],
+        ";", "\n", "\n", 
+       RowBox[{"expression1", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"coefficient1", "*", "x"}], "+", "remainder1"}]}], ";", "\n", 
+       RowBox[{"expression2", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"coefficient2", "*", "x"}], "+", "remainder2"}]}], ";", "\n", 
+       RowBox[{"Return", "[", 
+        RowBox[{"List", "[", 
+         RowBox[{
+         "expression1", ",", "expression2", ",", "unknownVariable", ",", 
+          "remainder1", ",", "remainder2"}], "]"}], "]"}]}]}], "\n", "]"}]}], 
+   "\n", "\n", 
+   RowBox[{
+    RowBox[{"calculateFitness", "[", 
+     RowBox[{
+     "remainder1_", ",", "remainder2_", ",", "base_", ",", "result_"}], "]"}],
+     " ", ":=", "\n", "\t", 
+    RowBox[{"Return", "[", 
+     RowBox[{
+      RowBox[{"Abs", "[", "remainder1", "]"}], " ", "+", " ", 
+      RowBox[{"Abs", "[", "remainder2", "]"}], " ", "+", " ", "base", " ", 
+      "+", " ", "result"}], "]"}]}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"makeString", "[", 
+     RowBox[{
+     "base_", ",", "body1_", ",", " ", "body2_", ",", " ", "result_"}], "]"}],
+     ":=", " ", 
+    RowBox[{"Return", "[", 
+     RowBox[{"HoldForm", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Log", "[", 
+         RowBox[{"base", ",", "body1"}], "]"}], " ", "+", " ", 
+        RowBox[{"Log", "[", 
+         RowBox[{"base", ",", "body2"}], "]"}]}], " ", "==", " ", "result"}], 
+      "]"}], "]"}]}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"generateAdditionLogarithmicEquation", "[", "]"}], ":=", "\n", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "base", ",", "body1", ",", "body2", ",", "result", ",", "returnValues",
+         ",", "maskedBody1", ",", "maskedBody2", ",", "unknownVariable", ",", 
+        " ", "fitness", ",", "remainder1", ",", "remainder2", ",", "results", 
+        ",", "possibleEquations", ",", "fitnessFunctions", ",", "xValues", 
+        ",", "xValue", ",", "equation", ",", "maxFitness", ",", "position"}], 
+       "}"}], ",", "\n", "\n", 
+      RowBox[{
+       RowBox[{"results", " ", "=", " ", 
+        RowBox[{"Range", "[", "30", "]"}]}], ";", "\n", 
+       RowBox[{"possibleEquations", " ", "=", " ", 
+        RowBox[{"List", "[", "]"}]}], ";", "\n", 
+       RowBox[{"fitnessFunctions", " ", "=", " ", 
+        RowBox[{"List", "[", "]"}]}], ";", "\n", 
+       RowBox[{"xValues", " ", "=", " ", 
+        RowBox[{"List", "[", "]"}]}], ";", "\n", "\n", 
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", "possibleEquations", "]"}], " ", "<", " ", 
+          "100"}], ",", "\n", "\t", 
+         RowBox[{
+          RowBox[{"base", " ", "=", " ", 
+           RowBox[{"RandomInteger", "[", 
+            RowBox[{"{", 
+             RowBox[{"2", ",", "10"}], "}"}], "]"}]}], ";", "\n", "\t", 
+          RowBox[{"body1", " ", "=", " ", 
+           RowBox[{"RandomInteger", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"base", "+", "1"}], ",", "1000"}], "}"}], "]"}]}], ";", 
+          "\n", "\t", 
+          RowBox[{"body2", " ", "=", " ", 
+           RowBox[{"RandomInteger", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"base", "+", "1"}], ",", 
+              RowBox[{"body1", "-", "1"}]}], "}"}], "]"}]}], ";", "\n", "\t", 
+          RowBox[{"result", " ", "=", " ", 
            RowBox[{
-            RowBox[{"returnValues", " ", "=", 
-             RowBox[{"maskNumbers", "[", 
-              RowBox[{"body1", ",", "body2"}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "\t\t", 
-            RowBox[{"maskedBody1", " ", "=", " ", 
-             RowBox[{"Part", "[", 
-              RowBox[{"returnValues", ",", "1"}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "\t\t", 
-            RowBox[{"maskedBody2", " ", "=", " ", 
-             RowBox[{"Part", "[", 
-              RowBox[{"returnValues", ",", "2"}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "\t\t", 
-            RowBox[{"unknownVariable", " ", "=", " ", 
-             RowBox[{"Part", "[", 
-              RowBox[{"returnValues", ",", "3"}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "\t\t", 
-            RowBox[{"remainder1", " ", "=", " ", 
-             RowBox[{"Part", "[", 
-              RowBox[{"returnValues", ",", "4"}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "\t\t", 
-            RowBox[{"remainder2", " ", "=", " ", 
-             RowBox[{"Part", "[", 
-              RowBox[{"returnValues", ",", "5"}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "\t\t", 
-            RowBox[{"fitness", " ", "=", " ", 
-             RowBox[{"calculateFitness", "[", 
-              RowBox[{
-              "remainder1", ",", "remainder2", ",", "base", ",", "result"}], 
-              "]"}]}], ";", "\[IndentingNewLine]", "\t\t", 
-            RowBox[{"AppendTo", "[", 
-             RowBox[{"possibleEquations", ",", 
-              RowBox[{"makeString", "[", 
+            RowBox[{"Log", "[", 
+             RowBox[{"base", ",", "body1"}], "]"}], " ", "+", " ", 
+            RowBox[{"Log", "[", 
+             RowBox[{"base", ",", "body2"}], "]"}]}]}], ";", "\n", "\t", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"MemberQ", "[", 
+             RowBox[{"results", ",", "result"}], "]"}], ",", "\n", "\t\t", 
+            RowBox[{
+             RowBox[{"returnValues", " ", "=", 
+              RowBox[{"maskNumbers", "[", 
+               RowBox[{"body1", ",", "body2"}], "]"}]}], ";", "\n", "\t\t", 
+             RowBox[{"maskedBody1", " ", "=", " ", 
+              RowBox[{"Part", "[", 
+               RowBox[{"returnValues", ",", "1"}], "]"}]}], ";", "\n", "\t\t", 
+             RowBox[{"maskedBody2", " ", "=", " ", 
+              RowBox[{"Part", "[", 
+               RowBox[{"returnValues", ",", "2"}], "]"}]}], ";", "\n", "\t\t", 
+             RowBox[{"unknownVariable", " ", "=", " ", 
+              RowBox[{"Part", "[", 
+               RowBox[{"returnValues", ",", "3"}], "]"}]}], ";", "\n", "\t\t", 
+             RowBox[{"remainder1", " ", "=", " ", 
+              RowBox[{"Part", "[", 
+               RowBox[{"returnValues", ",", "4"}], "]"}]}], ";", "\n", "\t\t", 
+             RowBox[{"remainder2", " ", "=", " ", 
+              RowBox[{"Part", "[", 
+               RowBox[{"returnValues", ",", "5"}], "]"}]}], ";", "\n", "\t\t", 
+             RowBox[{"fitness", " ", "=", " ", 
+              RowBox[{"calculateFitness", "[", 
                RowBox[{
-               "base", ",", "maskedBody1", ",", "maskedBody2", ",", 
-                "result"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
-            "\t\t", 
-            RowBox[{"AppendTo", "[", 
-             RowBox[{"xValues", ",", "unknownVariable"}], "]"}], ";", 
-            "\[IndentingNewLine]", "\t\t", 
-            RowBox[{"AppendTo", "[", 
-             RowBox[{"fitnessFunctions", ",", "fitness"}], "]"}]}], 
-           "\[IndentingNewLine]", "\t", ","}], "]"}]}]}], 
-       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-      "\[IndentingNewLine]", 
-      RowBox[{"maxFitness", " ", "=", " ", 
-       RowBox[{"Max", "[", "fitnessFunctions", "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"position", " ", "=", " ", 
-       RowBox[{"Part", "[", 
-        RowBox[{
-         RowBox[{"Position", "[", 
-          RowBox[{"fitnessFunctions", ",", "maxFitness"}], "]"}], " ", ",", 
-         "1"}], "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"equation", " ", "=", " ", 
-       RowBox[{"Part", "[", 
-        RowBox[{
-         RowBox[{"Part", "[", 
-          RowBox[{"possibleEquations", ",", "position"}], "]"}], ",", "1"}], 
-        "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"xValue", " ", "=", " ", 
-       RowBox[{"Part", "[", 
-        RowBox[{
-         RowBox[{"Part", "[", 
-          RowBox[{"xValues", ",", "position"}], "]"}], ",", "1"}], "]"}]}], 
-      ";", "\[IndentingNewLine]", 
-      RowBox[{"Return", "[", 
-       RowBox[{"List", "[", 
-        RowBox[{"equation", ",", "xValue"}], "]"}], "]"}]}]}], 
-    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{"EquationAndXValue", " ", "=", " ", 
-  RowBox[{"generateEquation", "[", "]"}]}], "\[IndentingNewLine]", 
- RowBox[{"equation", " ", "=", " ", 
-  RowBox[{"Part", "[", 
-   RowBox[{"EquationAndXValue", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
- RowBox[{"xValue", " ", "=", " ", 
-  RowBox[{"Part", "[", 
-   RowBox[{"EquationAndXValue", ",", "2"}], 
-   "]"}]}], "\[IndentingNewLine]"}], "Input",
+               "remainder1", ",", "remainder2", ",", "base", ",", "result"}], 
+               "]"}]}], ";", "\n", "\t\t", 
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"possibleEquations", ",", 
+               RowBox[{"makeString", "[", 
+                RowBox[{
+                "base", ",", "maskedBody1", ",", "maskedBody2", ",", 
+                 "result"}], "]"}]}], "]"}], ";", "\n", "\t\t", 
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"xValues", ",", "unknownVariable"}], "]"}], ";", "\n", 
+             "\t\t", 
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"fitnessFunctions", ",", "fitness"}], "]"}]}], "\n", 
+            "\t", ","}], "]"}]}]}], "\n", "]"}], ";", "\n", "\n", 
+       RowBox[{"maxFitness", " ", "=", " ", 
+        RowBox[{"Max", "[", "fitnessFunctions", "]"}]}], ";", "\n", 
+       RowBox[{"position", " ", "=", " ", 
+        RowBox[{"Part", "[", 
+         RowBox[{
+          RowBox[{"Position", "[", 
+           RowBox[{"fitnessFunctions", ",", "maxFitness"}], "]"}], " ", ",", 
+          "1"}], "]"}]}], ";", "\n", 
+       RowBox[{"equation", " ", "=", " ", 
+        RowBox[{"Part", "[", 
+         RowBox[{
+          RowBox[{"Part", "[", 
+           RowBox[{"possibleEquations", ",", "position"}], "]"}], ",", "1"}], 
+         "]"}]}], ";", "\n", 
+       RowBox[{"xValue", " ", "=", " ", 
+        RowBox[{"Part", "[", 
+         RowBox[{
+          RowBox[{"Part", "[", 
+           RowBox[{"xValues", ",", "position"}], "]"}], ",", "1"}], "]"}]}], 
+       ";", "\n", 
+       RowBox[{"Return", "[", 
+        RowBox[{"List", "[", 
+         RowBox[{"equation", ",", "xValue"}], "]"}], "]"}]}]}], "\n", "]"}]}],
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"EquationAndXValue", " ", "=", " ", 
+    RowBox[{"generateAdditionLogarithmicEquation", "[", "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"equation", " ", "=", " ", 
+    RowBox[{"Part", "[", 
+     RowBox[{"EquationAndXValue", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"xValue", " ", "=", " ", 
+    RowBox[{"Part", "[", 
+     RowBox[{"EquationAndXValue", ",", "2"}], "]"}]}], 
+   "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{
   3.8262690820864115`*^9, {3.826269120313242*^9, 3.826269123100288*^9}, {
    3.8262693306105633`*^9, 3.8262693364335375`*^9}, {3.8262693683727083`*^9, 
@@ -576,7 +548,10 @@ Cell[BoxData[{
    3.826463092010519*^9, 3.826463122550881*^9}, {3.8264631542763395`*^9, 
    3.8264631892016525`*^9}, {3.8265255278006506`*^9, 3.826525532223973*^9}, {
    3.826528480312232*^9, 3.8265285265143776`*^9}, {3.826528601075513*^9, 
-   3.8265287751479836`*^9}}],
+   3.8265287751479836`*^9}, {3.826546862894987*^9, 3.826546878250806*^9}, {
+   3.8265486739476905`*^9, 3.826548678214736*^9}, {3.826549120567706*^9, 
+   3.82654912989397*^9}, 3.826549242346235*^9, {3.826549417474641*^9, 
+   3.8265494192029915`*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -586,21 +561,25 @@ Cell[BoxData[
      RowBox[{
       RowBox[{"Log", "[", 
        RowBox[{"2", ",", 
-        RowBox[{"4", "+", 
-         RowBox[{"18", " ", "x"}]}]}], "]"}], "+", 
+        RowBox[{"9", "+", 
+         RowBox[{"19", " ", "x"}]}]}], "]"}], "+", 
       RowBox[{"Log", "[", 
        RowBox[{"2", ",", 
         RowBox[{
-         RowBox[{"-", "12"}], "+", 
+         RowBox[{"-", "10"}], "+", 
          RowBox[{"2", " ", "x"}]}]}], "]"}]}], "\[Equal]", "12"}],
-    HoldForm], ",", "14"}], "}"}]], "Output",
+    HoldForm], ",", "13"}], "}"}]], "Output",
  CellChangeTimes->{
   3.826294729371002*^9, {3.826294827004444*^9, 3.82629487125543*^9}, {
    3.826294906322682*^9, 3.8262949465911255`*^9}, {3.826295218574061*^9, 
    3.826295265947421*^9}, {3.826295306636918*^9, 3.826295340706868*^9}, 
    3.826341598673608*^9, 3.8264562076424685`*^9, {3.8264631231556005`*^9, 
    3.8264631601698256`*^9}, {3.826463191343003*^9, 3.8264632000951242`*^9}, {
-   3.8265258383480473`*^9, 3.8265258500065107`*^9}, 3.826528768025755*^9}],
+   3.8265258383480473`*^9, 3.8265258500065107`*^9}, 3.826528768025755*^9, {
+   3.826546882521129*^9, 3.8265468952964244`*^9}, {3.826549133086792*^9, 
+   3.8265491934250154`*^9}, 3.8265492367980404`*^9, {3.826549283767432*^9, 
+   3.82654929991531*^9}, 3.8265493438424454`*^9, {3.8265494365166326`*^9, 
+   3.8265494545583363`*^9}}],
 
 Cell[BoxData[
  TagBox[
@@ -608,12 +587,12 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"Log", "[", 
      RowBox[{"2", ",", 
-      RowBox[{"4", "+", 
-       RowBox[{"18", " ", "x"}]}]}], "]"}], "+", 
+      RowBox[{"9", "+", 
+       RowBox[{"19", " ", "x"}]}]}], "]"}], "+", 
     RowBox[{"Log", "[", 
      RowBox[{"2", ",", 
       RowBox[{
-       RowBox[{"-", "12"}], "+", 
+       RowBox[{"-", "10"}], "+", 
        RowBox[{"2", " ", "x"}]}]}], "]"}]}], "\[Equal]", "12"}],
   HoldForm]], "Output",
  CellChangeTimes->{
@@ -622,16 +601,24 @@ Cell[BoxData[
    3.826295265947421*^9}, {3.826295306636918*^9, 3.826295340706868*^9}, 
    3.826341598673608*^9, 3.8264562076424685`*^9, {3.8264631231556005`*^9, 
    3.8264631601698256`*^9}, {3.826463191343003*^9, 3.8264632000951242`*^9}, {
-   3.8265258383480473`*^9, 3.8265258500065107`*^9}, 3.826528768027749*^9}],
+   3.8265258383480473`*^9, 3.8265258500065107`*^9}, 3.826528768025755*^9, {
+   3.826546882521129*^9, 3.8265468952964244`*^9}, {3.826549133086792*^9, 
+   3.8265491934250154`*^9}, 3.8265492367980404`*^9, {3.826549283767432*^9, 
+   3.82654929991531*^9}, 3.8265493438424454`*^9, {3.8265494365166326`*^9, 
+   3.826549454561305*^9}}],
 
-Cell[BoxData["14"], "Output",
+Cell[BoxData["13"], "Output",
  CellChangeTimes->{
   3.826294729371002*^9, {3.826294827004444*^9, 3.82629487125543*^9}, {
    3.826294906322682*^9, 3.8262949465911255`*^9}, {3.826295218574061*^9, 
    3.826295265947421*^9}, {3.826295306636918*^9, 3.826295340706868*^9}, 
    3.826341598673608*^9, 3.8264562076424685`*^9, {3.8264631231556005`*^9, 
    3.8264631601698256`*^9}, {3.826463191343003*^9, 3.8264632000951242`*^9}, {
-   3.8265258383480473`*^9, 3.8265258500065107`*^9}, 3.826528768029744*^9}]
+   3.8265258383480473`*^9, 3.8265258500065107`*^9}, 3.826528768025755*^9, {
+   3.826546882521129*^9, 3.8265468952964244`*^9}, {3.826549133086792*^9, 
+   3.8265491934250154`*^9}, 3.8265492367980404`*^9, {3.826549283767432*^9, 
+   3.82654929991531*^9}, 3.8265493438424454`*^9, {3.8265494365166326`*^9, 
+   3.8265494545632963`*^9}}]
 }, Open  ]],
 
 Cell["\<\
@@ -802,7 +789,8 @@ Cell[BoxData[{
      "]"}], "]"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"generateEquation", "[", "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"generateSubtractionLogarithmicEquation", "[", "]"}], ":=", 
+   "\[IndentingNewLine]", 
    RowBox[{"Module", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -837,12 +825,14 @@ Cell[BoxData[{
          RowBox[{"body1", " ", "=", " ", 
           RowBox[{"RandomInteger", "[", 
            RowBox[{"{", 
-            RowBox[{"2", ",", "1000"}], "}"}], "]"}]}], ";", 
+            RowBox[{
+             RowBox[{"base", "+", "1"}], ",", "1000"}], "}"}], "]"}]}], ";", 
          "\[IndentingNewLine]", 
          RowBox[{"body2", " ", "=", " ", 
           RowBox[{"RandomInteger", "[", 
            RowBox[{"{", 
-            RowBox[{"2", ",", 
+            RowBox[{
+             RowBox[{"base", "+", "1"}], ",", 
              RowBox[{"body1", "-", "1"}]}], "}"}], "]"}]}], ";", 
          "\[IndentingNewLine]", 
          RowBox[{"result", " ", "=", " ", 
@@ -927,7 +917,9 @@ Cell[BoxData[{
     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{"EquationAndXValue", " ", "=", " ", 
-  RowBox[{"generateEquation", "[", "]"}]}], "\[IndentingNewLine]", 
+  RowBox[{
+  "generateSubtractionLogarithmicEquation", "[", 
+   "]"}]}], "\[IndentingNewLine]", 
  RowBox[{"equation", " ", "=", " ", 
   RowBox[{"Part", "[", 
    RowBox[{"EquationAndXValue", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
@@ -951,7 +943,8 @@ Cell[BoxData[{
    3.826462585118531*^9, 3.8264626030375414`*^9}, {3.8264627185981073`*^9, 
    3.8264627610866003`*^9}, {3.8264630502356296`*^9, 3.826463070030598*^9}, {
    3.8265255510611153`*^9, 3.826525556135429*^9}, {3.826528790392627*^9, 
-   3.82652891157968*^9}}],
+   3.82652891157968*^9}, {3.826546913968342*^9, 3.826546932164236*^9}, {
+   3.826548687382614*^9, 3.8265486913920145`*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -965,9 +958,7 @@ Cell[BoxData[
          RowBox[{"6", " ", "x"}]}]}], "]"}], "-", 
       RowBox[{"Log", "[", 
        RowBox[{"4", ",", 
-        RowBox[{
-         RowBox[{"-", "6"}], "+", 
-         RowBox[{"2", " ", "x"}]}]}], "]"}]}], "\[Equal]", "1"}],
+        RowBox[{"13", "+", "x"}]}], "]"}]}], "\[Equal]", "1"}],
     HoldForm], ",", "19"}], "}"}]], "Output",
  CellChangeTimes->{{3.8264563193793364`*^9, 3.826456338496401*^9}, 
    3.8264564005697007`*^9, 3.8264564508599663`*^9, 3.8264565042583976`*^9, {
@@ -980,7 +971,8 @@ Cell[BoxData[
    3.826462371769483*^9, 3.826462471198559*^9, 3.8264625054484234`*^9, 
    3.826462550535334*^9, 3.8264626039371357`*^9, 3.8264627619275775`*^9, 
    3.826462799020747*^9, 3.8264628614854383`*^9, 3.826463013270928*^9, {
-   3.8264630600940866`*^9, 3.826463071025666*^9}, 3.826528916031659*^9}],
+   3.8264630600940866`*^9, 3.826463071025666*^9}, 3.826528916031659*^9, {
+   3.82654693728255*^9, 3.82654695607316*^9}, 3.826549376766137*^9}],
 
 Cell[BoxData[
  TagBox[
@@ -992,9 +984,7 @@ Cell[BoxData[
        RowBox[{"6", " ", "x"}]}]}], "]"}], "-", 
     RowBox[{"Log", "[", 
      RowBox[{"4", ",", 
-      RowBox[{
-       RowBox[{"-", "6"}], "+", 
-       RowBox[{"2", " ", "x"}]}]}], "]"}]}], "\[Equal]", "1"}],
+      RowBox[{"13", "+", "x"}]}], "]"}]}], "\[Equal]", "1"}],
   HoldForm]], "Output",
  CellChangeTimes->{{3.8264563193793364`*^9, 3.826456338496401*^9}, 
    3.8264564005697007`*^9, 3.8264564508599663`*^9, 3.8264565042583976`*^9, {
@@ -1007,7 +997,8 @@ Cell[BoxData[
    3.826462371769483*^9, 3.826462471198559*^9, 3.8264625054484234`*^9, 
    3.826462550535334*^9, 3.8264626039371357`*^9, 3.8264627619275775`*^9, 
    3.826462799020747*^9, 3.8264628614854383`*^9, 3.826463013270928*^9, {
-   3.8264630600940866`*^9, 3.826463071025666*^9}, 3.826528916035349*^9}],
+   3.8264630600940866`*^9, 3.826463071025666*^9}, 3.826528916031659*^9, {
+   3.82654693728255*^9, 3.82654695607316*^9}, 3.8265493767691298`*^9}],
 
 Cell[BoxData["19"], "Output",
  CellChangeTimes->{{3.8264563193793364`*^9, 3.826456338496401*^9}, 
@@ -1021,7 +1012,8 @@ Cell[BoxData["19"], "Output",
    3.826462371769483*^9, 3.826462471198559*^9, 3.8264625054484234`*^9, 
    3.826462550535334*^9, 3.8264626039371357`*^9, 3.8264627619275775`*^9, 
    3.826462799020747*^9, 3.8264628614854383`*^9, 3.826463013270928*^9, {
-   3.8264630600940866`*^9, 3.826463071025666*^9}, 3.826528916037299*^9}]
+   3.8264630600940866`*^9, 3.826463071025666*^9}, 3.826528916031659*^9, {
+   3.82654693728255*^9, 3.82654695607316*^9}, 3.826549376770127*^9}]
 }, Open  ]],
 
 Cell["\<\
@@ -1154,7 +1146,8 @@ Cell[BoxData[{
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"generateEquation", "[", "]"}], " ", ":=", "\[IndentingNewLine]", 
+   RowBox[{"generateQuadraticLogarithmicEquation", "[", "]"}], " ", ":=", 
+   "\[IndentingNewLine]", 
    RowBox[{"Module", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -1206,7 +1199,8 @@ Cell[BoxData[{
        "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
   "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{"EquationAndXValue", " ", "=", " ", 
-  RowBox[{"generateEquation", "[", "]"}]}], "\[IndentingNewLine]", 
+  RowBox[{
+  "generateQuadraticLogarithmicEquation", "[", "]"}]}], "\[IndentingNewLine]", 
  RowBox[{"equation", " ", "=", " ", 
   RowBox[{"Part", "[", 
    RowBox[{"EquationAndXValue", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
@@ -1249,57 +1243,58 @@ Cell[BoxData[{
    3.8265458905811014`*^9, 3.8265459359824877`*^9}, {3.8265460014048147`*^9, 
    3.8265460541290827`*^9}, {3.8265462135479918`*^9, 3.826546310276886*^9}, {
    3.8265463978346167`*^9, 3.8265464531580667`*^9}, {3.8265464883424797`*^9, 
-   3.8265465447091455`*^9}}],
+   3.8265465447091455`*^9}, {3.8265469648333297`*^9, 3.826546976506342*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
    RowBox[{
     RowBox[{
-     RowBox[{"-", "15"}], "+", 
      FractionBox[
-      RowBox[{"19", " ", 
+      RowBox[{"8", " ", 
        RowBox[{"Log", "[", "x", "]"}]}], 
-      RowBox[{"Log", "[", "9", "]"}]], "-", 
+      RowBox[{"Log", "[", "2", "]"}]], "-", 
      FractionBox[
-      RowBox[{"4", " ", 
+      RowBox[{"2", " ", 
        SuperscriptBox[
         RowBox[{"Log", "[", "x", "]"}], "2"]}], 
       SuperscriptBox[
-       RowBox[{"Log", "[", "9", "]"}], "2"]]}], "\[Equal]", "0"}], ",", "9"}],
-   "}"}]], "Output",
+       RowBox[{"Log", "[", "2", "]"}], "2"]]}], "\[Equal]", "0"}], ",", 
+   "16"}], "}"}]], "Output",
  CellChangeTimes->{
   3.826546056472042*^9, {3.8265460889532776`*^9, 3.826546107222336*^9}, {
    3.8265461473469753`*^9, 3.8265461656113157`*^9}, {3.826546302090982*^9, 
    3.8265463572201095`*^9}, {3.82654645448351*^9, 3.8265464603825264`*^9}, 
-   3.826546546638089*^9}],
+   3.826546546638089*^9, {3.8265469781489315`*^9, 3.8265469897990646`*^9}, {
+   3.826549381769306*^9, 3.826549383919504*^9}}],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{
-   RowBox[{"-", "15"}], "+", 
    FractionBox[
-    RowBox[{"19", " ", 
+    RowBox[{"8", " ", 
      RowBox[{"Log", "[", "x", "]"}]}], 
-    RowBox[{"Log", "[", "9", "]"}]], "-", 
+    RowBox[{"Log", "[", "2", "]"}]], "-", 
    FractionBox[
-    RowBox[{"4", " ", 
+    RowBox[{"2", " ", 
      SuperscriptBox[
       RowBox[{"Log", "[", "x", "]"}], "2"]}], 
     SuperscriptBox[
-     RowBox[{"Log", "[", "9", "]"}], "2"]]}], "\[Equal]", "0"}]], "Output",
+     RowBox[{"Log", "[", "2", "]"}], "2"]]}], "\[Equal]", "0"}]], "Output",
  CellChangeTimes->{
   3.826546056472042*^9, {3.8265460889532776`*^9, 3.826546107222336*^9}, {
    3.8265461473469753`*^9, 3.8265461656113157`*^9}, {3.826546302090982*^9, 
    3.8265463572201095`*^9}, {3.82654645448351*^9, 3.8265464603825264`*^9}, 
-   3.8265465466410794`*^9}],
+   3.826546546638089*^9, {3.8265469781489315`*^9, 3.8265469897990646`*^9}, {
+   3.826549381769306*^9, 3.826549383921534*^9}}],
 
-Cell[BoxData["9"], "Output",
+Cell[BoxData["16"], "Output",
  CellChangeTimes->{
   3.826546056472042*^9, {3.8265460889532776`*^9, 3.826546107222336*^9}, {
    3.8265461473469753`*^9, 3.8265461656113157`*^9}, {3.826546302090982*^9, 
    3.8265463572201095`*^9}, {3.82654645448351*^9, 3.8265464603825264`*^9}, 
-   3.8265465466430817`*^9}]
+   3.826546546638089*^9, {3.8265469781489315`*^9, 3.8265469897990646`*^9}, {
+   3.826549381769306*^9, 3.826549383925488*^9}}]
 }, Open  ]],
 
 Cell["\<\
@@ -1390,7 +1385,8 @@ Cell[BoxData[{
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"generateEquation", "[", "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"generateExponentialLogarithmicEquation", "[", "]"}], ":=", 
+   "\[IndentingNewLine]", 
    RowBox[{"Module", "[", 
     RowBox[{
      RowBox[{"{", 
@@ -1456,7 +1452,8 @@ Cell[BoxData[{
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"EquationAndXValue", " ", "=", " ", 
-   RowBox[{"generateEquation", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"generateExponentialLogarithmicEquation", "[", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"equation", " ", "=", " ", 
    RowBox[{"Part", "[", 
@@ -1520,7 +1517,7 @@ Cell[BoxData[{
    3.8265448873777747`*^9}, {3.8265449358507676`*^9, 3.8265449730456095`*^9}, 
    3.826545009622031*^9, {3.826545056955546*^9, 3.8265450573973303`*^9}, {
    3.8265450911284885`*^9, 3.826545135543663*^9}, {3.826545230827654*^9, 
-   3.8265452860253477`*^9}}],
+   3.8265452860253477`*^9}, {3.8265469942822037`*^9, 3.826547009879351*^9}}],
 
 Cell[CellGroupData[{
 
@@ -1528,19 +1525,22 @@ Cell[BoxData[
  RowBox[{
   FractionBox[
    RowBox[{"Log", "[", 
-    RowBox[{"61", "+", 
+    RowBox[{
+     RowBox[{"-", "37"}], "+", 
      SuperscriptBox["4", "x"]}], "]"}], 
-   RowBox[{"Log", "[", "5", "]"}]], "\[Equal]", "3"}]], "Print",
+   RowBox[{"Log", "[", "3", "]"}]], "\[Equal]", "3"}]], "Print",
  CellChangeTimes->{
   3.826544724959007*^9, 3.8265447851001444`*^9, 3.826544887866417*^9, 
    3.8265449780373726`*^9, 3.826545013373212*^9, 3.8265451404269977`*^9, {
-   3.8265452679076896`*^9, 3.826545290222991*^9}, 3.8265453321164804`*^9}],
+   3.8265452679076896`*^9, 3.826545290222991*^9}, 3.8265453321164804`*^9, {
+   3.8265470065076933`*^9, 3.826547013094983*^9}}],
 
 Cell[BoxData["3"], "Print",
  CellChangeTimes->{
   3.826544724959007*^9, 3.8265447851001444`*^9, 3.826544887866417*^9, 
    3.8265449780373726`*^9, 3.826545013373212*^9, 3.8265451404269977`*^9, {
-   3.8265452679076896`*^9, 3.826545290222991*^9}, 3.8265453321195173`*^9}]
+   3.8265452679076896`*^9, 3.826545290222991*^9}, 3.8265453321164804`*^9, {
+   3.8265470065076933`*^9, 3.8265470130989485`*^9}}]
 }, Open  ]]
 }, Open  ]],
 
@@ -1728,11 +1728,9 @@ $CellContext`y], $CellContext`f2,
    3.8263696574139004`*^9, 3.8263696909604735`*^9}]
 }, Open  ]]
 },
-WindowSize->{1264, 591},
-WindowMargins->{{-8, Automatic}, {Automatic, 0}},
+WindowSize->{1264, 583},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 ShowSelection->True,
-Magnification:>FEPrivate`If[
-  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
 FrontEndVersion->"8.0 for Microsoft Windows (64-bit) (February 23, 2011)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1748,51 +1746,51 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 278, 6, 71, "Input"],
-Cell[860, 30, 97, 1, 42, "Output"]
+Cell[579, 22, 278, 6, 52, "Input"],
+Cell[860, 30, 176, 4, 30, "Output"]
 }, Open  ]],
-Cell[972, 34, 164, 4, 65, "Text"],
+Cell[1051, 37, 164, 4, 45, "Text"],
 Cell[CellGroupData[{
-Cell[1161, 42, 7319, 165, 1286, "Input"],
-Cell[8483, 209, 620, 14, 66, "Output"],
-Cell[9106, 225, 560, 11, 66, "Output"],
-Cell[9669, 238, 424, 6, 42, "Output"]
+Cell[1240, 45, 6697, 163, 1052, "Input"],
+Cell[7940, 210, 540, 14, 50, "Output"],
+Cell[8483, 226, 478, 11, 50, "Output"],
+Cell[8964, 239, 292, 4, 30, "Output"]
 }, Open  ]],
-Cell[10108, 247, 343, 7, 90, "Text"],
+Cell[9271, 246, 343, 7, 45, "Text"],
 Cell[CellGroupData[{
-Cell[10476, 258, 14535, 320, 2366, "Input"],
-Cell[25014, 580, 894, 22, 42, "Output"],
-Cell[25911, 604, 822, 20, 42, "Output"],
-Cell[26736, 626, 495, 7, 42, "Output"]
+Cell[9639, 257, 13637, 296, 1632, "Input"],
+Cell[23279, 555, 1149, 26, 30, "Output"],
+Cell[24431, 583, 1075, 24, 30, "Output"],
+Cell[25509, 609, 750, 11, 30, "Output"]
 }, Open  ]],
-Cell[27246, 636, 192, 4, 65, "Text"],
+Cell[26274, 623, 192, 4, 45, "Text"],
 Cell[CellGroupData[{
-Cell[27463, 644, 13866, 309, 2285, "Input"],
-Cell[41332, 955, 1311, 27, 42, "Output"],
-Cell[42646, 984, 1239, 25, 42, "Output"],
-Cell[43888, 1011, 914, 12, 42, "Output"]
+Cell[26491, 631, 14093, 315, 1592, "Input"],
+Cell[40587, 948, 1327, 26, 30, "Output"],
+Cell[41917, 976, 1261, 24, 30, "Output"],
+Cell[43181, 1002, 984, 13, 30, "Output"]
 }, Open  ]],
-Cell[44817, 1026, 201, 4, 65, "Text"],
+Cell[44180, 1018, 201, 4, 45, "Text"],
 Cell[CellGroupData[{
-Cell[45043, 1034, 10292, 217, 1097, "Input"],
-Cell[55338, 1253, 736, 21, 71, "Output"],
-Cell[56077, 1276, 664, 18, 71, "Output"],
-Cell[56744, 1296, 302, 5, 42, "Output"]
+Cell[44406, 1026, 10387, 219, 812, "Input"],
+Cell[54796, 1247, 805, 21, 53, "Output"],
+Cell[55604, 1270, 731, 18, 53, "Output"],
+Cell[56338, 1290, 401, 6, 30, "Output"]
 }, Open  ]],
-Cell[57061, 1304, 209, 5, 65, "Text"],
+Cell[56754, 1299, 209, 5, 45, "Text"],
 Cell[CellGroupData[{
-Cell[57295, 1313, 10360, 209, 1367, "Input"],
+Cell[56988, 1308, 10459, 211, 1012, "Input"],
 Cell[CellGroupData[{
-Cell[67680, 1526, 433, 10, 58, "Print"],
-Cell[68116, 1538, 268, 4, 32, "Print"]
+Cell[67472, 1523, 506, 12, 38, "Print"],
+Cell[67981, 1537, 322, 5, 21, "Print"]
 }, Open  ]]
 }, Open  ]],
-Cell[68411, 1546, 168, 4, 65, "Text"],
+Cell[68330, 1546, 168, 4, 43, "Text"],
 Cell[CellGroupData[{
-Cell[68604, 1554, 3498, 75, 684, "Input"],
-Cell[72105, 1631, 472, 10, 52, "Message"],
-Cell[72580, 1643, 71, 1, 32, "Print"],
-Cell[72654, 1646, 4029, 81, 1053, "Output"]
+Cell[68523, 1554, 3498, 75, 456, "Input"],
+Cell[72024, 1631, 472, 10, 23, "Message"],
+Cell[72499, 1643, 71, 1, 21, "Print"],
+Cell[72573, 1646, 4029, 81, 702, "Output"]
 }, Open  ]]
 }
 ]
