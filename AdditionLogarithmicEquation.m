@@ -12,8 +12,7 @@ generateAdditionLogarithmicEquation[]
 
 solveAdditionLogarithmicEquation::usage="
 solveAdditionLogarithmicEquation[equation_]
- - returns a List with 2 elements, 1st element is some trash and 2nd element is 
-actual step by step solution
+ - returns List of step by step solution
 ";
 
 Begin["`Private`"] (*Begin Private Context*)
@@ -125,7 +124,7 @@ Module[{steps,fullForm,base,body1,body2,rightSide,combinedLog,step1,leftSide,ste
 	body1= fullForm[[1,1,1,1,2]];
 	body2= fullForm[[1,1,1,2,2]];
 	combinedLog = Log[base,(body1)*(body2)];
-	rightSide = Log[base,
+	rightSide = Log[base,base^rightSide];
 	step1 = combinedLog == rightSide;
 	AppendTo[steps,step1];
 	rightSide = base^rightSide;
@@ -160,7 +159,6 @@ Module[{steps,fullForm,base,body1,body2,rightSide,combinedLog,step1,leftSide,ste
 	         step6 = "x" ==string;
 	         AppendTo[steps,step6];
 	Return[steps]
-]
 ]
 
 
