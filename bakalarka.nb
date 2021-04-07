@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     39797,        953]
-NotebookOptionsPosition[     37958,        887]
-NotebookOutlinePosition[     38423,        905]
-CellTagsIndexPosition[     38380,        902]
+NotebookDataLength[     43383,       1064]
+NotebookOptionsPosition[     41504,        997]
+NotebookOutlinePosition[     41969,       1015]
+CellTagsIndexPosition[     41926,       1012]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -396,7 +396,8 @@ ButtonData:>\\\"paclet:ref/message/Message/name\\\", ButtonNote -> \
   3.82679136846035*^9, {3.826791402756957*^9, 3.826791422787362*^9}, {
    3.8267929682646985`*^9, 3.8267929892120028`*^9}, {3.8267931449034314`*^9, 
    3.826793157831229*^9}, {3.826793363448352*^9, 3.8267934011359506`*^9}, {
-   3.8267934324749374`*^9, 3.8267934710407753`*^9}}],
+   3.8267934324749374`*^9, 3.8267934710407753`*^9}, {3.8268059086951127`*^9, 
+   3.82680591840158*^9}}],
 
 Cell[CellGroupData[{
 
@@ -405,15 +406,15 @@ Cell[BoxData[
   RowBox[{
    RowBox[{
     RowBox[{"Log", "[", 
-     RowBox[{"2", ",", 
+     RowBox[{"5", ",", 
       RowBox[{
-       RowBox[{"-", "19"}], "+", 
-       RowBox[{"7", " ", "\<\"x\"\>"}]}]}], "]"}], "-", 
+       RowBox[{"-", "110"}], "+", 
+       RowBox[{"9", " ", "\<\"x\"\>"}]}]}], "]"}], "-", 
     RowBox[{"Log", "[", 
-     RowBox[{"2", ",", 
+     RowBox[{"5", ",", 
       RowBox[{
-       RowBox[{"-", "8"}], "+", 
-       RowBox[{"3", " ", "\<\"x\"\>"}]}]}], "]"}]}], "\[Equal]", "1"}],
+       RowBox[{"-", "100"}], "+", 
+       RowBox[{"7", " ", "\<\"x\"\>"}]}]}], "]"}]}], "\[Equal]", "1"}],
   HoldForm]], "Print",
  CellChangeTimes->{
   3.8266076900366745`*^9, 3.8266084736702733`*^9, {3.8266210379879694`*^9, 
@@ -421,16 +422,18 @@ Cell[BoxData[
    3.8266214825861034`*^9, 3.8267913685342865`*^9, {3.826791402760917*^9, 
    3.826791422792354*^9}, {3.8267929682676935`*^9, 3.826792989215029*^9}, {
    3.82679314490742*^9, 3.826793157834221*^9}, {3.8267933634513445`*^9, 
-   3.82679340113994*^9}, {3.8267934324779024`*^9, 3.8267934710437665`*^9}}],
+   3.82679340113994*^9}, {3.8267934324779024`*^9, 3.8267934710437665`*^9}, {
+   3.8268059086971474`*^9, 3.826805918405366*^9}}],
 
-Cell[BoxData["3"], "Print",
+Cell[BoxData["15"], "Print",
  CellChangeTimes->{
   3.8266076900366745`*^9, 3.8266084736702733`*^9, {3.8266210379879694`*^9, 
    3.8266210696109424`*^9}, {3.82662110119876*^9, 3.8266211226011715`*^9}, 
    3.8266214825861034`*^9, 3.8267913685342865`*^9, {3.826791402760917*^9, 
    3.826791422792354*^9}, {3.8267929682676935`*^9, 3.826792989215029*^9}, {
    3.82679314490742*^9, 3.826793157834221*^9}, {3.8267933634513445`*^9, 
-   3.82679340113994*^9}, {3.8267934324779024`*^9, 3.8267934710457754`*^9}}],
+   3.82679340113994*^9}, {3.8267934324779024`*^9, 3.8267934710437665`*^9}, {
+   3.8268059086971474`*^9, 3.8268059184073954`*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -439,51 +442,51 @@ Cell[BoxData[
     RowBox[{
      RowBox[{
       RowBox[{"Log", "[", 
-       RowBox[{"2", ",", 
+       RowBox[{"5", ",", 
         RowBox[{
-         RowBox[{"-", "19"}], "+", 
-         RowBox[{"7", " ", "\<\"x\"\>"}]}]}], "]"}], "-", 
+         RowBox[{"-", "110"}], "+", 
+         RowBox[{"9", " ", "\<\"x\"\>"}]}]}], "]"}], "-", 
       RowBox[{"Log", "[", 
-       RowBox[{"2", ",", 
+       RowBox[{"5", ",", 
         RowBox[{
-         RowBox[{"-", "8"}], "+", 
-         RowBox[{"3", " ", "\<\"x\"\>"}]}]}], "]"}]}], "\[Equal]", "1"}],
+         RowBox[{"-", "100"}], "+", 
+         RowBox[{"7", " ", "\<\"x\"\>"}]}]}], "]"}]}], "\[Equal]", "1"}],
     HoldForm], ",", 
    RowBox[{
     FractionBox[
      RowBox[{"Log", "[", 
       FractionBox[
        RowBox[{
-        RowBox[{"-", "19"}], "+", 
-        RowBox[{"7", " ", "\<\"x\"\>"}]}], 
+        RowBox[{"-", "110"}], "+", 
+        RowBox[{"9", " ", "\<\"x\"\>"}]}], 
        RowBox[{
-        RowBox[{"-", "8"}], "+", 
-        RowBox[{"3", " ", "\<\"x\"\>"}]}]], "]"}], 
-     RowBox[{"Log", "[", "2", "]"}]], "\[Equal]", "1"}], ",", 
+        RowBox[{"-", "100"}], "+", 
+        RowBox[{"7", " ", "\<\"x\"\>"}]}]], "]"}], 
+     RowBox[{"Log", "[", "5", "]"}]], "\[Equal]", "1"}], ",", 
    RowBox[{
     FractionBox[
      RowBox[{
-      RowBox[{"-", "19"}], "+", 
-      RowBox[{"7", " ", "\<\"x\"\>"}]}], 
+      RowBox[{"-", "110"}], "+", 
+      RowBox[{"9", " ", "\<\"x\"\>"}]}], 
      RowBox[{
-      RowBox[{"-", "8"}], "+", 
-      RowBox[{"3", " ", "\<\"x\"\>"}]}]], "\[Equal]", "2"}], ",", 
+      RowBox[{"-", "100"}], "+", 
+      RowBox[{"7", " ", "\<\"x\"\>"}]}]], "\[Equal]", "5"}], ",", 
    RowBox[{
     RowBox[{
-     RowBox[{"-", "19"}], "+", 
-     RowBox[{"7", " ", "\<\"x\"\>"}]}], "\[Equal]", 
+     RowBox[{"-", "110"}], "+", 
+     RowBox[{"9", " ", "\<\"x\"\>"}]}], "\[Equal]", 
     RowBox[{
-     RowBox[{"-", "16"}], "+", 
-     RowBox[{"6", " ", "\<\"x\"\>"}]}]}], ",", 
+     RowBox[{"-", "500"}], "+", 
+     RowBox[{"35", " ", "\<\"x\"\>"}]}]}], ",", 
    RowBox[{
-    RowBox[{
-     RowBox[{"-", "3"}], "+", "\<\"x\"\>"}], "\[Equal]", "0"}], ",", 
+    RowBox[{"390", "-", 
+     RowBox[{"26", " ", "\<\"x\"\>"}]}], "\[Equal]", "0"}], ",", 
    RowBox[{"\<\"x\"\>", "\[Equal]", 
     InterpretationBox[
-     StyleBox["3",
+     StyleBox["15",
       ShowStringCharacters->True,
       NumberMarks->True],
-     InputForm[3],
+     InputForm[15],
      AutoDelete->True,
      Editable->True]}]}], "}"}]], "Print",
  CellChangeTimes->{
@@ -492,7 +495,8 @@ Cell[BoxData[
    3.8266214825861034`*^9, 3.8267913685342865`*^9, {3.826791402760917*^9, 
    3.826791422792354*^9}, {3.8267929682676935`*^9, 3.826792989215029*^9}, {
    3.82679314490742*^9, 3.826793157834221*^9}, {3.8267933634513445`*^9, 
-   3.82679340113994*^9}, {3.8267934324779024`*^9, 3.826793471050747*^9}}]
+   3.82679340113994*^9}, {3.8267934324779024`*^9, 3.8267934710437665`*^9}, {
+   3.8268059086971474`*^9, 3.826805918412347*^9}}]
 }, Open  ]]
 }, Open  ]],
 
@@ -525,7 +529,13 @@ QuadraticLogarithmicEquation.m\>\"", "]"}], "\[IndentingNewLine]",
  RowBox[{
   RowBox[{"Print", "[", "equation", "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Print", "[", "xValue", "]"}], ";"}]}], "Input",
+  RowBox[{"Print", "[", "xValue", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"steps", " ", "=", " ", 
+   RowBox[{"solveQuadraticLogarithmicEquation", "[", "equation", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", "steps", "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.8262958677258472`*^9, 3.8262958726950464`*^9}, {
    3.826296430506195*^9, 3.8262964577993445`*^9}, {3.8262964883659487`*^9, 
    3.8262965350721793`*^9}, {3.8262965736029916`*^9, 3.826296882251303*^9}, {
@@ -564,30 +574,130 @@ QuadraticLogarithmicEquation.m\>\"", "]"}], "\[IndentingNewLine]",
    3.8265463978346167`*^9, 3.8265464531580667`*^9}, {3.8265464883424797`*^9, 
    3.8265465447091455`*^9}, {3.8265469648333297`*^9, 3.826546976506342*^9}, {
    3.8266085185666895`*^9, 3.8266085322826347`*^9}, {3.8266211935011773`*^9, 
-   3.8266211954722805`*^9}, {3.826621278692299*^9, 3.826621288552762*^9}},
+   3.8266211954722805`*^9}, {3.826621278692299*^9, 3.826621288552762*^9}, {
+   3.826805921163985*^9, 3.826805927531949*^9}},
  EmphasizeSyntaxErrors->True],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"6", "+", 
+  RowBox[{"22", "-", 
    FractionBox[
-    RowBox[{"9", " ", 
+    RowBox[{"17", " ", 
      RowBox[{"Log", "[", "\<\"x\"\>", "]"}]}], 
-    RowBox[{"Log", "[", "2", "]"}]], "-", 
+    RowBox[{"Log", "[", "4", "]"}]], "+", 
    FractionBox[
-    RowBox[{"6", " ", 
+    RowBox[{"3", " ", 
      SuperscriptBox[
       RowBox[{"Log", "[", "\<\"x\"\>", "]"}], "2"]}], 
     SuperscriptBox[
-     RowBox[{"Log", "[", "2", "]"}], "2"]]}], "\[Equal]", "0"}]], "Print",
- CellChangeTimes->{3.8266085333009834`*^9, 3.826621290102949*^9, 
-  3.826621484346537*^9}],
+     RowBox[{"Log", "[", "4", "]"}], "2"]]}], "\[Equal]", "0"}]], "Print",
+ CellChangeTimes->{
+  3.8266085333009834`*^9, 3.826621290102949*^9, 3.826621484346537*^9, 
+   3.826797578384659*^9, {3.8268059116442213`*^9, 3.826805929715708*^9}}],
 
-Cell[BoxData["4"], "Print",
- CellChangeTimes->{3.8266085333009834`*^9, 3.826621290102949*^9, 
-  3.826621484349963*^9}]
+Cell[BoxData["16"], "Print",
+ CellChangeTimes->{
+  3.8266085333009834`*^9, 3.826621290102949*^9, 3.826621484346537*^9, 
+   3.826797578384659*^9, {3.8268059116442213`*^9, 3.8268059297197185`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"22", "-", 
+     FractionBox[
+      RowBox[{"17", " ", 
+       RowBox[{"Log", "[", "\<\"x\"\>", "]"}]}], 
+      RowBox[{"Log", "[", "4", "]"}]], "+", 
+     FractionBox[
+      RowBox[{"3", " ", 
+       SuperscriptBox[
+        RowBox[{"Log", "[", "\<\"x\"\>", "]"}], "2"]}], 
+      SuperscriptBox[
+       RowBox[{"Log", "[", "4", "]"}], "2"]]}], "\[Equal]", "0"}], ",", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"Log", "[", "\<\"x\"\>", "]"}], 
+     RowBox[{"Log", "[", "4", "]"}]], "\[Equal]", "\<\"t\"\>"}], ",", 
+   RowBox[{
+    RowBox[{"22", "-", 
+     RowBox[{"17", " ", "\<\"t\"\>"}], "+", 
+     RowBox[{"3", " ", 
+      SuperscriptBox["\<\"t\"\>", "2"]}]}], "\[Equal]", "0"}], ",", 
+   RowBox[{"\<\"D\"\>", "\[Equal]", 
+    InterpretationBox[
+     StyleBox["25",
+      ShowStringCharacters->True,
+      NumberMarks->True],
+     InputForm[25],
+     AutoDelete->True,
+     Editable->True]}], ",", 
+   RowBox[{"\<\"Sqrt[D]\"\>", "\[Equal]", 
+    InterpretationBox[
+     StyleBox["5",
+      ShowStringCharacters->True,
+      NumberMarks->True],
+     InputForm[5],
+     AutoDelete->True,
+     Editable->True]}], ",", 
+   RowBox[{"\<\"t\"\>", "\[Equal]", 
+    InterpretationBox[
+     StyleBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"17", " ", "\[PlusMinus]", " ", "5"}], ")"}], "/", "6"}],
+      ShowStringCharacters->True,
+      NumberMarks->True],
+     InputForm[Rational[1, 6] PlusMinus[17, 5]],
+     AutoDelete->True,
+     Editable->True]}], ",", 
+   RowBox[{"\<\"t1\"\>", "\[Equal]", 
+    InterpretationBox[
+     StyleBox[
+      RowBox[{"11", "/", "3"}],
+      ShowStringCharacters->True,
+      NumberMarks->True],
+     InputForm[
+      Rational[11, 3]],
+     AutoDelete->True,
+     Editable->True]}], ",", 
+   RowBox[{"\<\"t2\"\>", "\[Equal]", 
+    InterpretationBox[
+     StyleBox["2",
+      ShowStringCharacters->True,
+      NumberMarks->True],
+     InputForm[2],
+     AutoDelete->True,
+     Editable->True]}], ",", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"Log", "[", "\<\"x\"\>", "]"}], 
+     RowBox[{"Log", "[", "4", "]"}]], "\[Equal]", "\<\"t\"\>"}], ",", 
+   RowBox[{"\<\"x1\"\>", "\[Equal]", 
+    SuperscriptBox["4", 
+     InterpretationBox[
+      StyleBox[
+       RowBox[{"11", "/", "3"}],
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      InputForm[
+       Rational[11, 3]],
+      AutoDelete->True,
+      Editable->True]]}], ",", 
+   RowBox[{"\<\"x2\"\>", "\[Equal]", 
+    SuperscriptBox["4", 
+     InterpretationBox[
+      StyleBox["2",
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      InputForm[2],
+      AutoDelete->True,
+      Editable->True]]}]}], "}"}]], "Print",
+ CellChangeTimes->{
+  3.8266085333009834`*^9, 3.826621290102949*^9, 3.826621484346537*^9, 
+   3.826797578384659*^9, {3.8268059116442213`*^9, 3.8268059297316284`*^9}}]
 }, Open  ]]
 }, Open  ]],
 
@@ -925,35 +1035,36 @@ Cell[8315, 207, 3304, 105, 117, "Print"]
 Cell[11646, 316, 192, 4, 65, "Text"],
 Cell[CellGroupData[{
 Cell[11863, 324, 3148, 56, 233, "Input"],
-Cell[15014, 382, 817, 16, 35, "Message"],
+Cell[15014, 382, 868, 17, 35, "Message"],
 Cell[CellGroupData[{
-Cell[15856, 402, 864, 21, 32, "Print"],
-Cell[16723, 425, 499, 7, 32, "Print"],
-Cell[17225, 434, 1999, 60, 71, "Print"]
+Cell[15907, 403, 919, 22, 32, "Print"],
+Cell[16829, 427, 554, 8, 32, "Print"],
+Cell[17386, 437, 2075, 61, 123, "Print"]
 }, Open  ]]
 }, Open  ]],
-Cell[19251, 498, 201, 4, 65, "Text"],
+Cell[19488, 502, 201, 4, 65, "Text"],
 Cell[CellGroupData[{
-Cell[19477, 506, 3722, 61, 179, "Input"],
+Cell[19714, 510, 4006, 68, 233, "Input"],
 Cell[CellGroupData[{
-Cell[23224, 571, 475, 14, 61, "Print"],
-Cell[23702, 587, 118, 2, 32, "Print"]
+Cell[23745, 582, 551, 15, 61, "Print"],
+Cell[24299, 599, 195, 3, 32, "Print"],
+Cell[24497, 604, 2869, 95, 114, "Print"]
 }, Open  ]]
 }, Open  ]],
-Cell[23847, 593, 209, 5, 65, "Text"],
+Cell[27393, 703, 209, 5, 65, "Text"],
 Cell[CellGroupData[{
-Cell[24081, 602, 4517, 73, 206, "Input"],
+Cell[27627, 712, 4517, 73, 206, "Input"],
 Cell[CellGroupData[{
-Cell[28623, 679, 595, 12, 58, "Print"],
-Cell[29221, 693, 422, 6, 32, "Print"]
+Cell[32169, 789, 595, 12, 58, "Print"],
+Cell[32767, 803, 422, 6, 32, "Print"]
 }, Open  ]]
 }, Open  ]],
-Cell[29670, 703, 168, 4, 65, "Text"],
+Cell[33216, 813, 168, 4, 65, "Text"],
 Cell[CellGroupData[{
-Cell[29863, 711, 3498, 75, 684, "Input"],
-Cell[33364, 788, 472, 10, 589, "Message"],
-Cell[33839, 800, 71, 1, 546, "Print"],
-Cell[33913, 803, 4029, 81, 17982, "Output"]
+Cell[33409, 821, 3498, 75, 684, "Input"],
+Cell[36910, 898, 472, 10, 35, "Message"],
+Cell[37385, 910, 71, 1, 32, "Print"],
+Cell[37459, 913, 4029, 81, 1053, "Output"]
 }, Open  ]]
 }
 ]
