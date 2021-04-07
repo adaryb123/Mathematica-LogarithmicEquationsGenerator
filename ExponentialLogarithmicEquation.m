@@ -10,7 +10,13 @@ ggenerateExponentialLogarithmicEquation[]
  - returns List with 2 elemets, equation and X value
 ";
 
+solveExponentialLogarithmicEquation::usage="
+solveExponentialLogarithmicEquation[equation_]
+ - returns List of step by step solution
+";
+
 Begin["`Private`"] (*Begin Private Context*)
+
 
 maskBody[body_,base_]:=
 Module[{exponentialPart,linearPart,exponent,sum,expression,plusChance},
@@ -40,11 +46,8 @@ Module[{result,base,body,returnValues,expression,results,xValue,equation},
 
 results = Range[5];
 While[True,
-	expression = Null;
-	xValue = Null;
-	equation = Null;
 	base = RandomInteger[{2,10}];
-	body = RandomInteger[{base+1,1000}];
+	body = RandomInteger[{base+1,500}];
 	result = Log[base,body];
 	If[MemberQ[results,result],
 		returnValues = maskBody[body,base];
@@ -54,6 +57,32 @@ While[True,
 		Return[List[equation,xValue]]
      ]
 ]
+]
+
+solveExponentialLogarithmicEquation[equation_]:=
+Module[{steps,fullForm,base,body,result,step1,rightSide,constantPart,exponentialPart,step2,numberUnderExponent,step3,xValue,step4,string},
+          steps = List[];
+	     AppendTo[steps,equation];
+	     fullForm = equation // FullForm;
+	     base = fullForm[[1,1,1,1,1]];
+	     body = fullForm[[1,1,2,1]];
+	     result = fullForm[[1,2]];
+	rightSide =base^result;
+	step1 = body == rightSide;
+	AppendTo[steps,step1];
+	constantPart = body[[1]];
+	exponentialPart = body[[2]];
+	rightSide =  rightSide - constantPart;
+	step2 = exponentialPart == rightSide;
+	AppendTo[steps,step2];
+	numberUnderExponent = exponentialPart[[1]];
+	xValue = Log[numberUnderExponent, rightSide];
+	step3 = exponentialPart == ToString[numberUnderExponent]^ToString[xValue];
+	AppendTo[steps,step3];
+	string = xValue //InputForm;
+	step4 = "x" == string;
+	AppendTo[steps,step4];
+	Return[steps];
 ]
 
 End[] (*End Private Context*)
