@@ -10,35 +10,20 @@ generateSimpleLogarithmicEquation[]
  - returns List with 2 elemets, equation and X value
 ";
 
-Begin["`Private`"] (*Begin Private Context*)
+solveSimpleLogarithmicEquation::usage="
+solveSimpleLogarithmicEquation[equation_]
+ - returns List of step by step solution
+";
 
-transformToSubtraction[coefficient_,remainder_,unknownVariable_] :=
-Module[{sum,newRemainder,newCoefficient,temp},
-sum = coefficient * unknownVariable + remainder;
-While[coefficient * unknownVariable < sum,
-coefficient++;
-];
-remainder = sum - coefficient * unknownVariable;
-Return[List[coefficient,remainder]]
-]
-SetAttributes[transformToSubtraction,HoldAll]
+Begin["`Private`"] (*Begin Private Context*)
 
 maskValue[number_]:=
 Module[{expression,unknownVariable,coefficient,remainder,transformChance,transformedValues},
 	While[True,
-	unknownVariable = RandomInteger[{2,Min[5,number]}];
-	coefficient = Quotient[number,unknownVariable];
-	remainder = Mod[number,unknownVariable];
-
-	transformChance = RandomInteger[{1,2}];
-	If[transformChance == 2, 
-	transformedValues = transformToSubtraction[coefficient,remainder,unknownVariable];
-	coefficient = Part[transformedValues,1];
-	remainder = Part[transformedValues,2]
-	];
-	
+	unknownVariable = RandomInteger[{2,Min[10,number]}];
+	coefficient = RandomInteger[{2,10}];
+	remainder = number - coefficient*unknownVariable;
 	If[remainder == 0,Continue[]];
-
 	expression = coefficient*"x"+remainder;
 	Return[List[expression,unknownVariable]]
 ]
@@ -61,9 +46,36 @@ Module[{result,body,base,returnValues,maskedBody,results,equation,xValue},
 ]
 ]
 
+solveSimpleLogarithmicEquation[equation_]:=
+Module[{steps,fullForm,step1,linearPart,constantPart,step2,base,body,result,coefficient,step3,rightSide,xValue,string},
+	steps = List[];
+	AppendTo[steps,equation];
+	fullForm = equation // FullForm;
+	base = fullForm[[1,1,1,1,1]];
+	body = fullForm[[1,1,2,1]];
+	result = fullForm[[1,2]];
+	rightSide=base^result;
+	step1 = body == rightSide;
+	AppendTo[steps,step1];
+	constantPart = body[[1]];
+	linearPart = body[[2]];
+	rightSide -= constantPart;
+	step2 = linearPart == rightSide;
+	AppendTo[steps,step2];
+	coefficient = linearPart[[1]];
+	xValue =rightSide / coefficient;
+	string = xValue//InputForm;
+	step3 = "x" ==string;
+	AppendTo[steps,step3];
+	Return[steps];
+]
+
 End[] (*End Private Context*)
 
 EndPackage[]
+
+
+
 
 
 

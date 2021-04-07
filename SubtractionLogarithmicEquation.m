@@ -66,7 +66,7 @@ If [mode == 2,base = RandomInteger[{2,10}];mode = 3];
 If[mode == 1, base = RandomInteger[{3,10}];mode = 2];
 If[mode== 0, base = RandomInteger[{6,10}];mode = 1];
 body1 = RandomInteger[{base+1,1000}];
-body2 = RandomInteger[{base+1,body1-1}];
+body2 = RandomInteger[{base,body1-1}];
 result = Log[base,body1]- Log[base,body2];
 If[MemberQ[results,result],
 	returnValues =maskNumbers[body1,body2];
