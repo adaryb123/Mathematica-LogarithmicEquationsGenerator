@@ -42,6 +42,8 @@ While[True,
 
 makeString[base_,body1_, body2_, result_]:= Return[HoldForm[Log[base,body1] + Log[base,body2] == result]]
 
+makeString1[base_,body_, result_]:= Return[HoldForm[Log[base,body] == result]]
+
 generateAdditionLogarithmicEquation[]:=
 Module[{base,body1,body2,result,returnValues,maskedBody1,maskedBody2,unknownVariable,remainder1,remainder2,equation,part1,part2,constantPart1,linearPart1,constantPart2,linearPart2,leftSide,string,xOccurences,a,b,c,discriminant,x1,x2,acceptedValues},
 
@@ -168,7 +170,7 @@ Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,st
 ]
 
 solveAdditionLogarithmicEquation[equation_]:=
-Module[{steps,fullForm,base,body1,body2,rightSide,combinedLog,step1,leftSide,step2,constantPart1,constantPart2,linearPart1,linearPart2,step3,step4,string,xOccurences,additionalSteps,gcd,coefficient,number,step5,step6,xValue,i},
+Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step1,leftSide,step2,constantPart1,constantPart2,linearPart1,linearPart2,step3,step4,string,xOccurences,additionalSteps,gcd,coefficient,number,step5,step6,xValue,i},
 	steps = List[];
 	fullForm = equation //FullForm;
 	AppendTo[steps,equation];
@@ -176,9 +178,9 @@ Module[{steps,fullForm,base,body1,body2,rightSide,combinedLog,step1,leftSide,ste
 	base = fullForm[[1,1,1,1,1]];
 	body1= fullForm[[1,1,1,1,2]];
 	body2= fullForm[[1,1,1,2,2]];
-	combinedLog = Log[base,(body1)*(body2)];
+	combinedBody = (body1)*(body2);
 	rightSide = Log[base,base^rightSide];
-	step1 = combinedLog == rightSide;
+	step1 = makeString1[base,combinedBody,rightSide];
 	AppendTo[steps,step1];
 	rightSide = base^rightSide;
 	leftSide = (body1)*(body2);

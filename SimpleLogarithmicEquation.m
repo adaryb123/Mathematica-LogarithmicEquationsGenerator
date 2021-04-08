@@ -32,6 +32,8 @@ Module[{expression,unknownVariable,coefficient,remainder,transformChance,transfo
 ]
 ]
 
+makeString[base_,body_, result_]:= Return[HoldForm[Log[base,body] == result]]
+
 generateSimpleLogarithmicEquation[]:=
 Module[{result,body,base,returnValues,maskedBody,results,equation,xValue},
 	results = Range[6];
@@ -43,7 +45,7 @@ Module[{result,body,base,returnValues,maskedBody,results,equation,xValue},
 		returnValues = maskValue[body];
 		maskedBody = Part[returnValues,1];
 		xValue = Part[returnValues,2];
-		equation = Log[base,maskedBody] == result;
+		equation = makeString[base,maskedBody,result];
 		Return[List[equation,xValue]]
 ]
 ]
@@ -54,9 +56,9 @@ Module[{steps,fullForm,step1,linearPart,constantPart,step2,base,body,result,coef
 	steps = List[];
 	AppendTo[steps,equation];
 	fullForm = equation // FullForm;
-	base = fullForm[[1,1,1,1,1]];
-	body = fullForm[[1,1,2,1]];
-	result = fullForm[[1,2]];
+	base = fullForm[[1,1,1,1]];
+	body = fullForm[[1,1,1,2]];
+	result = fullForm[[1,1,2]];
 	rightSide=base^result;
 	step1 = body == rightSide;
 	AppendTo[steps,step1];

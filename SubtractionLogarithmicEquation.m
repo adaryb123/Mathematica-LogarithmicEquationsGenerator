@@ -40,6 +40,8 @@ While[True,
 
 makeString[base_,body1_, body2_, result_]:= Return[HoldForm[Log[base,body1] - Log[base,body2] == result]]
 
+makeString1[base_,body_, result_]:= Return[HoldForm[Log[base,body] == result]]
+
 generateSubtractionLogarithmicEquation[]:=
 Module[{base,body1,body2,result,returnValues,maskedBody1,maskedBody2,unknownVariable,remainder1,remainder2,equation,part1,part2,futureRightSide},
 
@@ -67,7 +69,7 @@ Return[List[equation,unknownVariable]]
 ]
 
 solveSubtractionLogarithmicEquation[equation_]:=
-Module[{steps,fullForm,base,body1,body2,rightSide,combinedLog,step1,leftSide,step2,step3,step4,string,constantPart,coefficient,step5,xValue},
+Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step1,leftSide,step2,step3,step4,string,constantPart,coefficient,step5,xValue},
 	steps = List[];
 	fullForm = equation //FullForm;
 	AppendTo[steps,equation];
@@ -75,8 +77,8 @@ Module[{steps,fullForm,base,body1,body2,rightSide,combinedLog,step1,leftSide,ste
 	base = fullForm[[1,1,1,1,1]];
 	body1= fullForm[[1,1,1,1,2]];
 	body2= fullForm[[1,1,1,2,2,2]];
-	combinedLog = Log[base,(body1)/(body2)];
-	step1 = combinedLog == rightSide;
+	combinedBody = (body1)/(body2);
+	step1 = makeString1[base,combinedBody,rightSide];
 	AppendTo[steps,step1];
 	rightSide = base^rightSide;
 	leftSide = (body1)/(body2);
