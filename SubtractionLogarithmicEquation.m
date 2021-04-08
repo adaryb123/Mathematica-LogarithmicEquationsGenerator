@@ -17,14 +17,18 @@ solveSubtractionLogarithmicEquation[equation_]
 
 Begin["`Private`"] (*Begin Private Context*)
 
-maskNumbers[number1_,number2_] := Module[{smallerNumber,unknownVariable, coefficient1, remainder1, coefficient2, remainder2, expression1,expression2,biggerNumber},
+maskNumbers[number1_,number2_] := Module[{smallerNumber,unknownVariable, coefficient1, remainder1, coefficient2, remainder2, expression1,expression2,biggerNumber,badNumbers},
 	
 	smallerNumber = Min[number1,number2];
      biggerNumber = Max[number1,number2];
 While[True,
-	unknownVariable = RandomInteger[{Max[smallerNumber,3],Min[20,biggerNumber]}];
-	coefficient1 = RandomInteger[{2,10}];
-  coefficient2 = RandomInteger[{2,10}];
+	unknownVariable = RandomInteger[{Max[-10,-biggerNumber],Min[10,biggerNumber]}];
+	coefficient1 = RandomInteger[{-10,10}];
+    coefficient2 = RandomInteger[{-10,10}];
+	badNumbers = Range[-1,1];
+    If[MemberQ[badNumbers,coefficient1],Continue[]];
+    If[MemberQ[badNumbers,coefficient2],Continue[]];
+    If[MemberQ[badNumbers,unknownVariable],Continue[]];
 	remainder1 =number1 - coefficient1*unknownVariable;
   remainder2 =number2 - coefficient2 * unknownVariable; 
 	If[remainder1 ==0 ||remainder2 == 0,Continue[]];

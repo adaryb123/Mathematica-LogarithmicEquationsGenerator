@@ -18,10 +18,13 @@ solveSimpleLogarithmicEquation[equation_]
 Begin["`Private`"] (*Begin Private Context*)
 
 maskValue[number_]:=
-Module[{expression,unknownVariable,coefficient,remainder,transformChance,transformedValues},
+Module[{expression,unknownVariable,coefficient,remainder,transformChance,transformedValues,badNumbers},
 	While[True,
-	unknownVariable = RandomInteger[{2,Min[10,number]}];
-	coefficient = RandomInteger[{2,10}];
+	unknownVariable = RandomInteger[{Max[-10,-number],Min[10,number]}];
+	coefficient = RandomInteger[{-10,10}];
+	badNumbers = Range[-1,1];
+    If[MemberQ[badNumbers,coefficient],Continue[]];
+    If[MemberQ[badNumbers,unknownVariable],Continue[]];
 	remainder = number - coefficient*unknownVariable;
 	If[remainder == 0,Continue[]];
 	expression = coefficient*"x"+remainder;
