@@ -41,6 +41,10 @@ Return[List[expression,exponent]]
 ]
 ]
 
+makeString[base_,body_, result_]:= Return[HoldForm[Log[base,body] == result]]
+
+makeString1[body_,rightSide_] :=Return[HoldForm[body== rightSide]]
+
 generateExponentialLogarithmicEquation[]:=
 Module[{result,base,body,returnValues,expression,results,xValue,equation},
 
@@ -53,7 +57,7 @@ While[True,
 		returnValues = maskBody[body,base];
 		expression = Part[returnValues,1];
 		xValue = Part[returnValues,2];
-		equation = Log[base,expression] == result;
+	equation = makeString[base,expression,result];
 		Return[List[equation,xValue]]
      ]
 ]
@@ -64,11 +68,11 @@ Module[{steps,fullForm,base,body,result,step1,rightSide,constantPart,exponential
           steps = List[];
 	     AppendTo[steps,equation];
 	     fullForm = equation // FullForm;
-	     base = fullForm[[1,1,1,1,1]];
-	     body = fullForm[[1,1,2,1]];
-	     result = fullForm[[1,2]];
+	     base = fullForm[[1,1,1,1]];
+	     body = fullForm[[1,1,1,2]];
+	     result = fullForm[[1,1,2]];
 	rightSide =base^result;
-	step1 = body == rightSide;
+	step1 = makeString1[body,rightSide];
 	AppendTo[steps,step1];
 	constantPart = body[[1]];
 	exponentialPart = body[[2]];
@@ -84,6 +88,7 @@ Module[{steps,fullForm,base,body,result,step1,rightSide,constantPart,exponential
 	AppendTo[steps,step4];
 	Return[steps];
 ]
+
 
 End[] (*End Private Context*)
 

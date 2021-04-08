@@ -18,9 +18,8 @@ solveQuadraticLogarithmicEquation[equation_]
 Begin["`Private`"] (*Begin Private Context*)
 
 generateQuadraticEquation[results_]:=
-Module[{a,b,c,i,tValue1,tValue2,part1,part2,equation},
-i = 1;
-While[i > 0,
+Module[{a,b,c,i,tValue1,tValue2,part1,part2,equation,acceptedValues,betterResult},
+While[True,
 	a = RandomInteger[{-10,10}];
 	If[a == 0,a++];
 	b = RandomInteger[{-20,20}];
@@ -28,15 +27,12 @@ While[i > 0,
   If[c ==0 || a == 0 || b == 0 || b == 1 || a == 1, Continue[]];
 	tValue1 = Divide[Plus[Minus[b],Sqrt[Subtract[Power[b,2],Times[4,a,c]]]],Times[2,a]] ;
 	tValue2 = Divide[Subtract[Minus[b],Sqrt[Subtract[Power[b,2],Times[4,a,c]]]],Times[2,a]];
-	If[MemberQ[results,tValue1],
-		equation = Plus[Times[a, Power["t",2]] , Times[b,"t"] ,c] == 0;
-		Return[List[equation,tValue1]]
-	,];
-	If[MemberQ[results,tValue2],
-		equation = Plus[Times[a, Power["t",2]] , Times[b,"t"] ,c] == 0;
-		Return[List[equation,tValue2]]
-	,];
- i++]
+	acceptedValues = Range[-1,10];
+	If[!MemberQ[acceptedValues,tValue1] || !MemberQ[acceptedValues,tValue2], Continue[]];
+equation = Plus[Times[a, Power["t",2]] , Times[b,"t"] ,c] == 0;
+If[tValue2 > tValue1  && MemberQ[List[1,2,3],tValue2] && !MemberQ[List[1,2,3],tValue1], betterResult = tValue2,betterResult = tValue1];
+Return[List[equation,betterResult]];
+]
 ]
 
 generateQuadraticLogarithmicEquation[] :=
@@ -54,8 +50,27 @@ While[True,
 ]
 ]
 
+testTValues[t1_,t2_]:= Module[{steps,string,step},
+	steps = List[];
+	If[t1 != t2,
+	string = t1// InputForm;
+	step = "t1" == string;
+	AppendTo[steps,step];
+	string = t2 // InputForm;
+	step = "t2" == string;
+	AppendTo[steps,step];
+	Return[steps]
+	];
+	If[ t1 == t2,
+	string = t1 // InputForm;
+	step = "t" == string;
+	AppendTo[steps,step];
+	Return[steps]
+	];
+]
+
 solveQuadraticEquation[equation_] :=
-Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,step1,string,step2,step3,step4,result1,result2,step5},
+Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,step1,string,step2,step3,step4,result1,result2,step5,t1,t2,additionalSteps,i},
 	steps = List[];
 	c = equation[[1,1]];
 	b = equation[[1,2,1]];
@@ -73,23 +88,23 @@ Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,st
 	string = discriminant //InputForm;
 	step1 = "D" == string;
 	AppendTo[steps,step1];
+   If[discriminant != 0,
 	string = Sqrt[discriminant] //InputForm;
 	step2 = "Sqrt[D]" == string;
 	AppendTo[steps,step2];
+ ];
 	 string = PlusMinus[Minus[b],Sqrt[discriminant]]/(2*a) //InputForm;
 	step3 = "t" == string;
 	AppendTo[steps,step3];
-	result1 = Plus[Minus[b],Sqrt[discriminant]]/(2*a)//InputForm;
-	step4 = "t1" == result1;
-	AppendTo[steps,step4];
-	result2 = Subtract[Minus[b],Sqrt[discriminant]]/(2*a)//InputForm;
-	step5 = "t2" == result2;
-	AppendTo[steps,step5];
-	Return[List[steps,result1,result2]];
+	t1= Plus[Minus[b],Sqrt[discriminant]]/(2*a);
+	t2 = Subtract[Minus[b],Sqrt[discriminant]]/(2*a);
+	additionalSteps = testTValues[t1,t2];
+         For [i = 1, i <= Length[additionalSteps],i++,AppendTo[steps,additionalSteps[[i]]]];
+	Return[List[steps,t1,t2]];
 ]
 
 solveQuadraticLogarithmicEquation[equation_] :=
-Module[{steps,fullForm,base,string,step1,step2,constantCoeff,linearPart,quadraticPart, linearCoeff, quadraticCoeff,substitutionStep,additionalSteps,t1,t2,returnValues,xValue1,xValue2,naturalNumbers,i},
+Module[{steps,fullForm,base,string,step1,step2,constantCoeff,linearPart,quadraticPart, linearCoeff, quadraticCoeff,substitutionStep,additionalSteps,t1,t2,returnValues,xValue1,xValue2,xValue1String,xValue2String,i,step3},
 	steps = List[];
 	AppendTo[steps,equation];
 	fullForm = equation // FullForm;
@@ -110,16 +125,30 @@ Module[{steps,fullForm,base,string,step1,step2,constantCoeff,linearPart,quadrati
 	t1 = returnValues[[2]];
 	t2 = returnValues[[3]];
         AppendTo[steps,substitutionStep];
-	xValue1 =base^t1;
-	xValue2 = base^t2;
-	naturalNumbers = Range[0,20];
-	step2 = "x1" == xValue1;
+	xValue1String =base^ToString[t1] ;
+	xValue2String = base^ToString[t2] ;
+    xValue1=base^t1 //InputForm ;
+	xValue2 = base^t2  // InputForm;
+    If[xValue1 == xValue2,
+	step2 = "x" == xValue1String;
+	AppendTo[steps,step2];
+	step3 = "x" == xValue1;
+	AppendTo[steps,step3];
+	Return[steps]
+];
+    
+	step2 = "x1" == xValue1String ;
 	AppendTo[steps,step2];
 	string = xValue2;
-	step2 = "x2" == xValue2;
+	step2 = "x2" == xValue2String;
 	AppendTo[steps,step2];
+    step3 = "x1" == xValue1;
+    AppendTo[steps,step3];
+    step3 = "x2" == xValue2;
+    AppendTo[steps,step3];
 	Return[steps];
 ]
+
 
 End[] (*End Private Context*)
 
