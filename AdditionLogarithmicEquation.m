@@ -149,7 +149,7 @@ Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,st
 	AppendTo[steps,step1];
     Which[discriminant != 0,
 		      string = Sqrt[discriminant] //InputForm;
-		     step2 = "Sqrt[D]" == string;
+		     step2 = SqrtBox["D"] == string // DisplayForm;
 		     AppendTo[steps,step2];
                 string = PlusMinus[Minus[b],Sqrt[discriminant]]/(2*a) //InputForm;
 		     step3 = "x" == string;

@@ -80,7 +80,6 @@ testTValues[t1_,t2_]:= Module[{steps,string,step},
 solveQuadraticEquation[equation_] :=
 Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,step1,string,step2,step3,step4,result1,result2,step5,t1,t2,additionalSteps,i},
 	steps = List[];
-    Print[equation];
 	c = equation[[1,1,3]];
 	b = equation[[1,1,2,1]];
 	a = equation[[1,1,1,1]];
@@ -99,7 +98,7 @@ Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,st
 	AppendTo[steps,step1];
    If[discriminant != 0,
 	string = Sqrt[discriminant] //InputForm;
-	step2 = "Sqrt[D]" == string;
+	step2 = SqrtBox["D"] == string // DisplayForm;
 	AppendTo[steps,step2];
  ];
 	 string = PlusMinus[Minus[b],Sqrt[discriminant]]/(2*a) //InputForm;
