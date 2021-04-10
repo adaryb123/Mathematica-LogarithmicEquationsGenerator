@@ -217,7 +217,7 @@ Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step,leftSide,con
 	leftSide = constantPart1*constantPart2 + linearPart2 * constantPart1 +   linearPart1 * constantPart2 + linearPart1*linearPart2;
 	step = leftSide == rightSide;
 	AppendTo[steps,step];
-    explanation = DisplayForm[RowBox[{base,"^",result,"==",rightSide}]];
+    explanation = DisplayForm[RowBox[{base,"^",result,"=",rightSide}]];
       AppendTo[explanations,explanation];
      AppendTo[explanations,""];
 	step = leftSide - rightSide == 0;

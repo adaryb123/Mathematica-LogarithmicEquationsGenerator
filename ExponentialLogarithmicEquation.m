@@ -64,29 +64,38 @@ While[True,
 ]
 
 solveExponentialLogarithmicEquation[equation_]:=
-Module[{steps,fullForm,base,body,result,step1,rightSide,constantPart,exponentialPart,step2,numberUnderExponent,step3,xValue,step4,string},
+Module[{steps,fullForm,base,body,result,step,rightSide,constantPart,exponentialPart,numberUnderExponent,xValue,string, explanations, explanation,i},
           steps = List[];
+     explanations = List[];
 	     AppendTo[steps,equation];
 	     fullForm = equation // FullForm;
 	     base = fullForm[[1,1,1,1]];
 	     body = fullForm[[1,1,1,2]];
 	     result = fullForm[[1,1,2]];
 	rightSide =base^result;
-	step1 = makeString1[body,rightSide];
-	AppendTo[steps,step1];
+	step = makeString1[body,rightSide];
+	AppendTo[steps,step];
+     explanation = DisplayForm[RowBox[{base,"^",result,"=",rightSide}]];
+    AppendTo[explanations,explanation];
 	constantPart = body[[1]];
 	exponentialPart = body[[2]];
 	rightSide =  rightSide - constantPart;
-	step2 = exponentialPart == rightSide;
-	AppendTo[steps,step2];
+	step = exponentialPart == rightSide;
+	AppendTo[steps,step];
+    explanation = DisplayForm[RowBox[{"-(",constantPart,")"}]];
+    AppendTo[explanations,explanation];
 	numberUnderExponent = exponentialPart[[1]];
 	xValue = Log[numberUnderExponent, rightSide];
-	step3 = exponentialPart == ToString[numberUnderExponent]^ToString[xValue];
-	AppendTo[steps,step3];
+	step = exponentialPart == ToString[numberUnderExponent]^ToString[xValue];
+	AppendTo[steps,step];
+    explanation = DisplayForm[RowBox[{rightSide, " = ",numberUnderExponent,"^",xValue}]];
+    AppendTo[explanations,explanation];
 	string = xValue //InputForm;
-	step4 = "x" == string;
-	AppendTo[steps,step4];
-	Return[steps];
+	step = "x" == string;
+	AppendTo[steps,step];
+    AppendTo[explanations, " "];
+    AppendTo[explanations, " "];
+	Return[List[steps,explanations]];
 ]
 
 

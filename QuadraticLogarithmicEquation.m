@@ -21,6 +21,10 @@ makeString[base_,body_,a_,b_,c_, result_]:= Return[HoldForm[a*Log[base,body]^2 +
 
 makeString1[base_,body_,result_] :=Return[HoldForm[Log[base,body] == result]]
 
+makeString[base_,body_,a_,b_,c_, result_]:= Return[HoldForm[a*Log[base,body]^2 + b*Log[base,body] + c == result]]
+
+makeString1[base_,body_,result_] :=Return[HoldForm[Log[base,body] == result]]
+
 generateQuadraticEquation[results_]:=
 Module[{a,b,c,i,tValue1,tValue2,part1,part2,equation,acceptedValues,betterResult},
 While[True,
@@ -41,7 +45,7 @@ Return[List[equation,betterResult,a,b,c]];
 
 generateQuadraticLogarithmicEquation[] :=
 Module[{returnValues,quadraticEquation,tValue, base,results,equation,xValue,a,b,c},
-results = Range[30];
+results = Range[-5,5];
 While[True,
 	returnValues = generateQuadraticEquation[results];
 	quadraticEquation = Part[returnValues,1];
@@ -73,13 +77,14 @@ testTValues[t1_,t2_]:= Module[{steps,string,step},
 	string = t1 // InputForm;
 	step = "t" == string;
 	AppendTo[steps,step];
-	Return[steps]
+	Return[steps];
 	];
 ]
 
 solveQuadraticEquation[equation_] :=
-Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,step1,string,step2,step3,step4,result1,result2,step5,t1,t2,additionalSteps,i},
+Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,step,string,result1,result2,,t1,t2,additionalSteps,i,explanations,explanation},
 	steps = List[];
+    explanations = List[];
 	c = equation[[1,1,3]];
 	b = equation[[1,1,2,1]];
 	a = equation[[1,1,1,1]];
@@ -91,29 +96,43 @@ Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,st
 	c= c/gcd;
 	gcdStep = a* "t"^2 +b *"t" + c ==0;
 	AppendTo[steps,gcdStep];
+  explanation = DisplayForm[RowBox[{"/",gcd}]];
+  AppendTo[explanations,explanation];
 	];
 	discriminant = b^2 - 4*a*c;
 	string = discriminant //InputForm;
-	step1 = "D" == string;
-	AppendTo[steps,step1];
+	step = "D" == string;
+	AppendTo[steps,step];
+   explanation = DisplayForm[RowBox[{"D = b^2 - 4ac"}]];
+     AppendTo[explanations,explanation];
    If[discriminant != 0,
 	string = Sqrt[discriminant] //InputForm;
-	step2 = SqrtBox["D"] == string // DisplayForm;
-	AppendTo[steps,step2];
+	step = SqrtBox["D"] == string // DisplayForm;
+	AppendTo[steps,step];
+  AppendTo[explanations," "];
+  explanation =  DisplayForm[RowBox[{"t = ",PlusMinus[Minus["b"],Sqrt["D"]],"/ 2a"}]];
+  AppendTo[explanations,explanation];
  ];
+If [discriminant == 0, explanation =  DisplayForm[RowBox[{"t = -b / 2a"}]];
+         AppendTo[explanations,explanation];
+ AppendTo[explanations, " "]
+];
 	 string = PlusMinus[Minus[b],Sqrt[discriminant]]/(2*a) //InputForm;
-	step3 = "t" == string;
-	AppendTo[steps,step3];
+	step = "t" == string;
+	AppendTo[steps,step];
 	t1= Plus[Minus[b],Sqrt[discriminant]]/(2*a);
 	t2 = Subtract[Minus[b],Sqrt[discriminant]]/(2*a);
 	additionalSteps = testTValues[t1,t2];
          For [i = 1, i <= Length[additionalSteps],i++,AppendTo[steps,additionalSteps[[i]]]];
-	Return[List[steps,t1,t2]];
+    AppendTo[explanations," "];
+   AppendTo[explanations," "];
+	Return[List[steps,explanations,t1,t2]];
 ]
 
 solveQuadraticLogarithmicEquation[equation_] :=
-Module[{steps,fullForm,base,string,step1,step2,constantCoeff,linearPart,quadraticPart, linearCoeff, quadraticCoeff,substitutionStep,additionalSteps,t1,t2,returnValues,xValue1,xValue2,xValue1String,xValue2String,i,step3},
+Module[{steps,fullForm,base,string,step,constantCoeff,linearPart,quadraticPart, linearCoeff, quadraticCoeff,substitutionStep,additionalSteps,t1,t2,returnValues,xValue1,xValue2,xValue1String,xValue2String,i,explanations,explanation},
 	steps = List[];
+    explanations = List[];
 	AppendTo[steps,equation];
 	fullForm = equation // FullForm;
 	constantCoeff = fullForm[[1,1,1,3]];
@@ -123,38 +142,44 @@ Module[{steps,fullForm,base,string,step1,step2,constantCoeff,linearPart,quadrati
 	quadraticCoeff = quadraticPart[[1]];
 	base = linearPart[[2,1,1]];
          substitutionStep= makeString1[base,"x","t"];
-         AppendTo[steps,substitutionStep];
-	step1 = constantCoeff + linearCoeff * "t" + quadraticCoeff * "t"^2 == 0;
-	AppendTo[steps,step1];
+         AppendTo[explanations,substitutionStep];
+	step = constantCoeff + linearCoeff * "t" + quadraticCoeff * "t"^2 == 0;
+	AppendTo[steps,step];
 	returnValues = solveQuadraticEquation[equation];
 	For[i = 1, i <= Length[returnValues[[1]]], i++,
-		AppendTo[steps,Part[returnValues[[1]],i]]
+		AppendTo[steps,Part[returnValues[[1]],i]];
+	AppendTo[explanations,Part[returnValues[[2]],i]]
 		];
-	t1 = returnValues[[2]];
-	t2 = returnValues[[3]];
+	t1 = returnValues[[3]];
+	t2 = returnValues[[4]];
         AppendTo[steps,substitutionStep];
+   explanation = DisplayForm[RowBox[{"x = ",base,"^t"}]];
+    AppendTo[explanations," "];
+    AppendTo[explanations,explanation];
 	xValue1String =base^ToString[t1] ;
 	xValue2String = base^ToString[t2] ;
     xValue1=base^t1 //InputForm ;
 	xValue2 = base^t2  // InputForm;
     If[xValue1 == xValue2,
-	step2 = "x" == xValue1String;
-	AppendTo[steps,step2];
-	step3 = "x" == xValue1;
-	AppendTo[steps,step3];
-	Return[steps]
+	step = "x" == xValue1String;
+	AppendTo[steps,step];
+	step = "x" == xValue1;
+	AppendTo[steps,step];
+  For [i = 1, i <= Length[steps],i++, AppendTo[explanations," "]];
+	Return[List[steps,explanations]];
 ];
     
-	step2 = "x1" == xValue1String ;
-	AppendTo[steps,step2];
+	step = "x1" == xValue1String ;
+	AppendTo[steps,step];
 	string = xValue2;
-	step2 = "x2" == xValue2String;
-	AppendTo[steps,step2];
-    step3 = "x1" == xValue1;
-    AppendTo[steps,step3];
-    step3 = "x2" == xValue2;
-    AppendTo[steps,step3];
-	Return[steps];
+	step = "x2" == xValue2String;
+	AppendTo[steps,step];
+    step = "x1" == xValue1;
+    AppendTo[steps,step];
+    step = "x2" == xValue2;
+    AppendTo[steps,step];
+ For [i = 1, i <= Length[steps],i++, AppendTo[explanations," "]];
+	Return[List[steps,explanations]];
 ]
 
 

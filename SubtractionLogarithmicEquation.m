@@ -69,35 +69,47 @@ Return[List[equation,unknownVariable]]
 ]
 
 solveSubtractionLogarithmicEquation[equation_]:=
-Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step1,leftSide,step2,step3,step4,string,constantPart,coefficient,step5,xValue},
+Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step,leftSide,,string,constantPart,coefficient,xValue,explanations,explanation,result},
 	steps = List[];
+    explanations = List[];
 	fullForm = equation //FullForm;
 	AppendTo[steps,equation];
-	rightSide = fullForm[[1,1,2]];
+	result = fullForm[[1,1,2]];
 	base = fullForm[[1,1,1,1,1]];
 	body1= fullForm[[1,1,1,1,2]];
 	body2= fullForm[[1,1,1,2,2,2]];
 	combinedBody = (body1)/(body2);
-	step1 = makeString1[base,combinedBody,rightSide];
-	AppendTo[steps,step1];
-	rightSide = base^rightSide;
+	step = makeString1[base,combinedBody,result];
+	AppendTo[steps,step];
+    AppendTo[explanations," "];
+	rightSide = base^result;
 	leftSide = (body1)/(body2);
-	step2 = leftSide == rightSide;
-	AppendTo[steps,step2];
+	step = leftSide == rightSide;
+	AppendTo[steps,step];
+    explanation = DisplayForm[RowBox[{base,"^",result,"=",rightSide}]];
+    AppendTo[explanations,explanation];
 	rightSide =  body2[[1]] * rightSide+ body2[[2]]*rightSide;
-	step3 = body1 ==rightSide;
-	AppendTo[steps,step3];
+	step = body1 ==rightSide;
+	AppendTo[steps,step];
+    explanation = DisplayForm[RowBox[{"*(",body2,")"}]];
+    AppendTo[explanations,explanation];
 	leftSide = body1 - rightSide;
-	step4 = leftSide ==0;
-	AppendTo[steps,step4];
+	step = leftSide ==0;
+	AppendTo[steps,step];
+    explanation =DisplayForm[RowBox[{"-(",rightSide,")"}]];
+    AppendTo[explanations,explanation];
 	constantPart = leftSide[[1]];
-	Quiet[Check[coefficient = leftSide[[2,1]];xValue = -constantPart/coefficient,
+	Quiet[Check[coefficient = leftSide[[2,1]];xValue = -constantPart/coefficient;
+		explanation = DisplayForm[RowBox[{"/",coefficient}]];
+		AppendTo[explanations,explanation],
 			xValue = -constantPart]];
 	string = xValue //InputForm;
-	step5 = "x" == string;
-	AppendTo[steps,step5];
-	Return[steps]
+	step = "x" == string;
+	AppendTo[steps,step];
+AppendTo[explanations," "];
+	Return[List[steps,explanations]]
 ]
+
 
 
 End[] (*End Private Context*)

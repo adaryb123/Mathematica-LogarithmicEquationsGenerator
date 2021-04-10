@@ -63,7 +63,7 @@ Module[{steps,fullForm,step,linearPart,constantPart,base,body,result,coefficient
 	rightSide=base^result;
 	step = body == rightSide;
 	AppendTo[steps,step];
-    explanation = DisplayForm[RowBox[{base,"^",result,"==",rightSide}]];
+    explanation = DisplayForm[RowBox[{base,"^",result,"=",rightSide}]];
     AppendTo[explanations,explanation];
 	constantPart = body[[1]];
 	linearPart = body[[2]];
