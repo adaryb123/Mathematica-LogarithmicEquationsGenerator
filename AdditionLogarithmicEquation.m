@@ -127,10 +127,10 @@ testXValues[x1_,x2_,body1_,body2_]:= Module[{steps,result,constantCoef1,constant
 	];
 ]
 
-
 solveQuadraticEquation[equation_,body1_,body2_] :=
-Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,step1,string,step2,step3,step4,result,step5,additionalSteps,i},
+Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,step,string,result,additionalSteps,i,explanations,explanation},
 	steps = List[];
+    explanations = List[];
 	c = equation[[1,1]];
 	b = equation[[1,2,1]];
 	a = equation[[1,3,1]];
@@ -142,82 +142,119 @@ Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,st
 	c= c/gcd;
 	gcdStep = a* "x"^2 +b *"x" + c ==0;
 	AppendTo[steps,gcdStep];
+  explanation = DisplayForm[RowBox[{"/",gcd}]];
+  AppendTo[explanations,explanation];
+
 	];
 	discriminant = b^2 - 4*a*c;
 	string = discriminant //InputForm;
-	step1 = "D" == string;
-	AppendTo[steps,step1];
+	step = "D" == string;
+	AppendTo[steps,step];
+     explanation = DisplayForm[RowBox[{"D = b^2 - 4ac"}]];
+     AppendTo[explanations,explanation];
+
     Which[discriminant != 0,
 		      string = Sqrt[discriminant] //InputForm;
-		     step2 = SqrtBox["D"] == string // DisplayForm;
-		     AppendTo[steps,step2];
+		     step = SqrtBox["D"] == string // DisplayForm;
+		     AppendTo[steps,step];
+                  AppendTo[explanations,""];
+
                 string = PlusMinus[Minus[b],Sqrt[discriminant]]/(2*a) //InputForm;
-		     step3 = "x" == string;
-		    AppendTo[steps,step3];
+		     step = "x" == string;
+		    AppendTo[steps,step];
+                 explanation =  DisplayForm[RowBox[{"x = ",PlusMinus[Minus["b"],Sqrt["D"]],"/ 2a"}]];
+                   AppendTo[explanations,explanation];
+
 		    x1= Plus[Minus[b],Sqrt[discriminant]]/(2*a);
 		    x2 = Subtract[Minus[b],Sqrt[discriminant]]/(2*a);
 	            additionalSteps = testXValues[x1,x2,body1,body2];
-              For [i = 1, i <= Length[additionalSteps],i++,AppendTo[steps,additionalSteps[[i]]]],
-  discriminant == 0,
-             string = PlusMinus[Minus[b],Sqrt[discriminant]]/(2*a) //InputForm;
-	           step3 = "x" == string;
-	           AppendTo[steps,step3];
+              For [i = 1, i <= Length[additionalSteps],i++,
+		AppendTo[steps,additionalSteps[[i]]];AppendTo[explanations," "]];
+		AppendTo[explanations," "],
+
+                     discriminant == 0,
+             string =DisplayForm[RowBox[{-b," / ",2*a}]];
+	           step = "x" == string;
+	           AppendTo[steps,step];
+	    explanation = DisplayForm[RowBox[{"x = -b / 2a"}]];
+               AppendTo[explanations,explanation];
             string = Minus[b]/(2*a) // InputForm;
-	   step4 = "x" == string;
-	           AppendTo[steps,step4];
+	   step = "x" == string;
+	           AppendTo[steps,step];
+          AppendTo[explanations," "];
+	 AppendTo[explanations," "];
+
   ];
-	Return[steps];
+	Return[List[steps,explanations]];
 ]
 
 solveAdditionLogarithmicEquation[equation_]:=
-Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step1,leftSide,step2,constantPart1,constantPart2,linearPart1,linearPart2,step3,step4,string,xOccurences,additionalSteps,gcd,coefficient,number,step5,step6,xValue,i},
+Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step,leftSide,constantPart1,constantPart2,linearPart1,linearPart2,string,xOccurences,additionalSteps,gcd,coefficient,number,xValue,i,explanations,explanation,result},
 	steps = List[];
+     explanations = List[];
 	fullForm = equation //FullForm;
 	AppendTo[steps,equation];
-	rightSide = fullForm[[1,1,2]];
+	result = fullForm[[1,1,2]];
 	base = fullForm[[1,1,1,1,1]];
 	body1= fullForm[[1,1,1,1,2]];
 	body2= fullForm[[1,1,1,2,2]];
-	combinedBody = (body1)*(body2);
-	rightSide = Log[base,base^rightSide];
-	step1 = makeString1[base,combinedBody,rightSide];
-	AppendTo[steps,step1];
-	rightSide = base^rightSide;
-	leftSide = (body1)*(body2);
+	combinedBody = DisplayForm[RowBox[{"(",body1,")*(",body2,")"}]];
+	rightSide = Log[base,base^result];
+	step = makeString1[base,combinedBody,rightSide];
+    AppendTo[steps,step];
 
+	rightSide = base^result;
+	leftSide = (body1)*(body2);
 	constantPart1 = leftSide[[1,1]];
 	constantPart2 = leftSide[[2,1]];
 	linearPart1 = leftSide[[1,2]];
 	linearPart2 = leftSide[[2,2]];
-	step2 = leftSide == rightSide;
+    leftSide =  DisplayForm[RowBox[{"(",body1,")*(",body2,")"}]];
+	step = leftSide == rightSide;
+	AppendTo[steps,step];
+      AppendTo[explanations,""];
 
-	AppendTo[steps,step2];
 	leftSide = constantPart1*constantPart2 + linearPart2 * constantPart1 +   linearPart1 * constantPart2 + linearPart1*linearPart2;
-	step3 = leftSide == rightSide;
-	AppendTo[steps,step3];
-	step4 = leftSide - rightSide == 0;
-	AppendTo[steps,step4];
-	string  = ToString[step4];
+	step = leftSide == rightSide;
+	AppendTo[steps,step];
+    explanation = DisplayForm[RowBox[{base,"^",result,"==",rightSide}]];
+      AppendTo[explanations,explanation];
+     AppendTo[explanations,""];
+	step = leftSide - rightSide == 0;
+	AppendTo[steps,step];
+   explanation = DisplayForm[RowBox[{"-(",rightSide,")"}]];
+     AppendTo[explanations,explanation];
+
+	string  = ToString[step];
 	xOccurences = StringCount[string,"x"];
-	If[xOccurences ==2, additionalSteps = solveQuadraticEquation[step4,body1,body2];
-	For[i = 1, i <= Length[additionalSteps], i++,
-		AppendTo[steps,Part[additionalSteps,i]];
-	];
-	Return[steps]
+	If[xOccurences ==2, additionalSteps = solveQuadraticEquation[step,body1,body2];
+	For[i = 1, i <= Length[additionalSteps[[1]]], i++,
+		AppendTo[steps,Part[additionalSteps[[1]],i]];
+	AppendTo[explanations,Part[additionalSteps[[2]],i]];
+		];
+	 AppendTo[explanations," "];
+		Return[List[steps,explanations]];
 	]; 
-	number = step4[[1,1]];
-	coefficient= step4[[1,2,1]];
-	step5="x"^2 ==-number/coefficient;
-         AppendTo[steps,step5];
+	number = step[[1,1]];
+	coefficient= step[[1,2,1]];
+	step="x"^2 ==-number/coefficient;
+         AppendTo[steps,step];
+    explanation = DisplayForm[RowBox[{"/",coefficient}]];
+      AppendTo[explanations,explanation];
+
 	xValue =-number/coefficient;
 	         string = Sqrt[xValue]//InputForm;
-	         step6 = "x1" ==string;
-	         AppendTo[steps,step6];
+	         step = "x1" ==string;
+	         AppendTo[steps,step];
+	      AppendTo[explanations," "];
 	string = -Sqrt[xValue]//InputForm;
-	         step6 = "x2" ==string;
-	         AppendTo[steps,step6];
-	Return[steps]
+	         step = "x2" ==string;
+	         AppendTo[steps,step];
+              AppendTo[explanations," "];
+ AppendTo[explanations," "];
+	Return[List[steps,explanations]];
 ]
+
 
 End[] (*End Private Context*)
 

@@ -52,27 +52,35 @@ Module[{result,body,base,returnValues,maskedBody,results,equation,xValue},
 ]
 
 solveSimpleLogarithmicEquation[equation_]:=
-Module[{steps,fullForm,step1,linearPart,constantPart,step2,base,body,result,coefficient,step3,rightSide,xValue,string},
+Module[{steps,fullForm,step,linearPart,constantPart,base,body,result,coefficient,rightSide,xValue,string,explanations,explanation},
 	steps = List[];
+    explanations = List[];
 	AppendTo[steps,equation];
 	fullForm = equation // FullForm;
 	base = fullForm[[1,1,1,1]];
 	body = fullForm[[1,1,1,2]];
 	result = fullForm[[1,1,2]];
 	rightSide=base^result;
-	step1 = body == rightSide;
-	AppendTo[steps,step1];
+	step = body == rightSide;
+	AppendTo[steps,step];
+    explanation = DisplayForm[RowBox[{base,"^",result,"==",rightSide}]];
+    AppendTo[explanations,explanation];
 	constantPart = body[[1]];
 	linearPart = body[[2]];
 	rightSide -= constantPart;
-	step2 = linearPart == rightSide;
-	AppendTo[steps,step2];
+	step = linearPart == rightSide;
+	AppendTo[steps,step];
+     explanation = DisplayForm[RowBox[{"-(",body[[1]],")"}]];
+    AppendTo[explanations,explanation];
 	coefficient = linearPart[[1]];
 	xValue =rightSide / coefficient;
 	string = xValue//InputForm;
-	step3 = "x" ==string;
-	AppendTo[steps,step3];
-	Return[steps];
+	step = "x" ==string;
+	AppendTo[steps,step]; 
+    explanation = DisplayForm[RowBox[{"/",coefficient}]];
+    AppendTo[explanations,explanation];
+       AppendTo[explanations,""];
+	Return[List[steps,explanations]];
 ]
 
 End[] (*End Private Context*)
