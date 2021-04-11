@@ -10,7 +10,7 @@ generateSubtractionLogarithmicEquation[]
  - returns List with 2 elemets, equation and X value
 ";
 
-solveSubtractionLogarithmicEquation[]::usage="
+solveSubtractionLogarithmicEquation::usage="
 solveSubtractionLogarithmicEquation[equation_]
  - returns List of step by step solution
 ";

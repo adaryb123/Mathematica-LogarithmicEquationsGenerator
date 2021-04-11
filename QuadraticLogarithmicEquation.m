@@ -117,9 +117,11 @@ If [discriminant == 0, explanation =  DisplayForm[RowBox[{"t = -b / 2a"}]];
          AppendTo[explanations,explanation];
  AppendTo[explanations, " "]
 ];
+If[discriminant != 0,
 	 string = PlusMinus[Minus[b],Sqrt[discriminant]]/(2*a) //InputForm;
 	step = "t" == string;
-	AppendTo[steps,step];
+	AppendTo[steps,step]];
+
 	t1= Plus[Minus[b],Sqrt[discriminant]]/(2*a);
 	t2 = Subtract[Minus[b],Sqrt[discriminant]]/(2*a);
 	additionalSteps = testTValues[t1,t2];
