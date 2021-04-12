@@ -44,6 +44,8 @@ makeString[base_,body1_, body2_, result_]:= Return[HoldForm[Log[base,body1] + Lo
 
 makeString1[base_,body_, result_]:= Return[HoldForm[Log[base,body] == result]]
 
+makeString2[base_,body1_,body2_,combinedBody_]:= Return[HoldForm[Log[base,body1] + Log[base,body2] == Log[base,combinedBody]]]
+
 generateAdditionLogarithmicEquation[]:=
 Module[{base,body1,body2,result,returnValues,maskedBody1,maskedBody2,unknownVariable,remainder1,remainder2,equation,part1,part2,constantPart1,linearPart1,constantPart2,linearPart2,leftSide,string,xOccurences,a,b,c,discriminant,x1,x2,acceptedValues},
 
@@ -155,10 +157,6 @@ Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,st
 
     Which[discriminant != 0,
 		      string = Sqrt[discriminant] //InputForm;
-		     step = SqrtBox["D"] == string // DisplayForm;
-		     AppendTo[steps,step];
-                  AppendTo[explanations,""];
-
                 string = PlusMinus[Minus[b],Sqrt[discriminant]]/(2*a) //InputForm;
 		     step = "x" == string;
 		    AppendTo[steps,step];
@@ -212,7 +210,8 @@ Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step,leftSide,con
     leftSide =  DisplayForm[RowBox[{"(",body1,")*(",body2,")"}]];
 	step = leftSide == rightSide;
 	AppendTo[steps,step];
-      AppendTo[explanations,""];
+    explanation = makeString2["x","a","b","a * b"];
+      AppendTo[explanations,explanation];
 
 	leftSide = constantPart1*constantPart2 + linearPart2 * constantPart1 +   linearPart1 * constantPart2 + linearPart1*linearPart2;
 	step = leftSide == rightSide;

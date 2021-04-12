@@ -42,6 +42,9 @@ makeString[base_,body1_, body2_, result_]:= Return[HoldForm[Log[base,body1] - Lo
 
 makeString1[base_,body_, result_]:= Return[HoldForm[Log[base,body] == result]]
 
+makeString2[base_,body1_,body2_,combinedBody_]:= Return[HoldForm[Log[base,body1] + Log[base,body2] == Log[base,combinedBody]]]
+
+
 generateSubtractionLogarithmicEquation[]:=
 Module[{base,body1,body2,result,returnValues,maskedBody1,maskedBody2,unknownVariable,remainder1,remainder2,equation,part1,part2,futureRightSide},
 
@@ -81,7 +84,8 @@ Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step,leftSide,,st
 	combinedBody = (body1)/(body2);
 	step = makeString1[base,combinedBody,result];
 	AppendTo[steps,step];
-    AppendTo[explanations," "];
+     explanation = makeString2["x","a","b","a / b"];
+    AppendTo[explanations,explanation];
 	rightSide = base^result;
 	leftSide = (body1)/(body2);
 	step = leftSide == rightSide;

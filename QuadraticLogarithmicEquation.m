@@ -107,9 +107,6 @@ Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,st
      AppendTo[explanations,explanation];
    If[discriminant != 0,
 	string = Sqrt[discriminant] //InputForm;
-	step = SqrtBox["D"] == string // DisplayForm;
-	AppendTo[steps,step];
-  AppendTo[explanations," "];
   explanation =  DisplayForm[RowBox[{"t = ",PlusMinus[Minus["b"],Sqrt["D"]],"/ 2a"}]];
   AppendTo[explanations,explanation];
  ];
@@ -163,24 +160,19 @@ Module[{steps,fullForm,base,string,step,constantCoeff,linearPart,quadraticPart, 
     xValue1=base^t1 //InputForm ;
 	xValue2 = base^t2  // InputForm;
     If[xValue1 == xValue2,
-	step = "x" == xValue1String;
+	step = "x" == xValue1String == xValue1;
 	AppendTo[steps,step];
-	step = "x" == xValue1;
-	AppendTo[steps,step];
-  For [i = 1, i <= Length[steps],i++, AppendTo[explanations," "]];
+    AppendTo[explanations," "];
 	Return[List[steps,explanations]];
 ];
     
-	step = "x1" == xValue1String ;
+	step = "x1" == xValue1String == xValue1;
 	AppendTo[steps,step];
 	string = xValue2;
-	step = "x2" == xValue2String;
+	step = "x2" == xValue2String  == xValue2;
 	AppendTo[steps,step];
-    step = "x1" == xValue1;
-    AppendTo[steps,step];
-    step = "x2" == xValue2;
-    AppendTo[steps,step];
- For [i = 1, i <= Length[steps],i++, AppendTo[explanations," "]];
+	AppendTo[explanations," "];
+	AppendTo[explanations," "];
 	Return[List[steps,explanations]];
 ]
 
