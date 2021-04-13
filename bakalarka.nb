@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     17601,        415]
-NotebookOptionsPosition[     17237,        397]
-NotebookOutlinePosition[     17622,        414]
-CellTagsIndexPosition[     17579,        411]
+NotebookDataLength[     17383,        411]
+NotebookOptionsPosition[     17019,        393]
+NotebookOutlinePosition[     17404,        410]
+CellTagsIndexPosition[     17361,        407]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,33 +22,30 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{Cell["", "InitializationSection"], 
-   RowBox[{
-   "Get", "[", 
-    "\"\<C:\\\\Users\\\\uzivatel\\\\Desktop\\\\bp\\\\\
-SimpleLogarithmicEquation.m\>\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Needs", "[", "\"\<SimpleLogarithmicEquation`\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{Cell["", "InitializationSection"], 
+   RowBox[{"Needs", "[", "\"\<AdditionLogarithmicEquation`\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{Cell["", "InitializationSection"], 
+   RowBox[{"Needs", "[", "\"\<SubtractionLogarithmicEquation`\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{Cell["", "InitializationSection"], 
+   RowBox[{"Needs", "[", "\"\<QuadraticLogarithmicEquation`\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-  "Get", "[", 
-   "\"\<C:\\\\Users\\\\uzivatel\\\\Desktop\\\\bp\\\\\
-AdditionLogarithmicEquation.m\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-  "Get", "[", 
-   "\"\<C:\\\\Users\\\\uzivatel\\\\Desktop\\\\bp\\\\\
-SubtractionLogarithmicEquation.m\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-  "Get", "[", 
-   "\"\<C:\\\\Users\\\\uzivatel\\\\Desktop\\\\bp\\\\\
-QuadraticLogarithmicEquation.m\>\"", "]"}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-   "Get", "[", 
-    "\"\<C:\\\\Users\\\\uzivatel\\\\Desktop\\\\bp\\\\\
-ExponentialLogarithmicEquation.m\>\"", "]"}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+   RowBox[{Cell["", "InitializationSection"], 
+    RowBox[{"Needs", "[", "\"\<ExponentialLogarithmicEquation`\>\"", "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"generateSelectedEquation", "[", 
@@ -265,17 +262,14 @@ ExponentialLogarithmicEquation.m\>\"", "]"}], ";"}],
           RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "]"}]}], 
      "\[IndentingNewLine]", "}"}], "]"}]}], " ", 
   "]"}], "\[IndentingNewLine]"}], "Input",
- CellChangeTimes->{{3.827170753630476*^9, 3.827170754911454*^9}, {
-  3.8271708171817427`*^9, 3.8271708346992493`*^9}, {3.82717104376431*^9, 
-  3.8271710968257155`*^9}, {3.8271711350376687`*^9, 3.8271711964265995`*^9}, {
-  3.827171254832966*^9, 3.8271715000318365`*^9}, {3.82717154682393*^9, 
-  3.827171573863494*^9}, {3.8271717880085726`*^9, 3.827171879206684*^9}, {
-  3.82717191180506*^9, 3.8271719157763643`*^9}, {3.82717196664923*^9, 
-  3.827171993242691*^9}, {3.8271721407742977`*^9, 3.8271722304013867`*^9}, {
-  3.8271722781986065`*^9, 3.827172282556962*^9}, {3.827172472794574*^9, 
-  3.8271724750909476`*^9}, {3.827172520825542*^9, 3.8271725317514963`*^9}, {
-  3.8271725746882515`*^9, 3.8271726040197673`*^9}, {3.827172717056532*^9, 
-  3.8271728498846703`*^9}, {3.8272064943217793`*^9, 3.8272065366423435`*^9}},
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBmIQfUfHZMf+5jeOi7RiwfS1C6oHQLRDQtghEG1VWnEH
+RDvnSD0G0VNNHj4H0VuW9b4H0SuW3/oGos+xNIoeAJkTGyUNovct3C0Hoq3c
+GixBtMbcZy4gmvfwTw8Q/et6hSeIrjt2xR9EKxxRDwbRPMdnpIJozRtnCkD0
+n6hjZWBzLwWWg2i1XMl+EM39MglMX8+SmgqinXgqpoHtYbs2G0S/X9gwH0TL
+nF+4FkRb+NvsA9EsPqe0LwJpkT4RQxB9IaInh6fljeMkp4IqEO1l4tsMosU+
+9YPp+svLO0B015Lp3SAaAIGKpMs=
+  "],
  EmphasizeSyntaxErrors->True],
 
 Cell[BoxData[
@@ -321,16 +315,16 @@ $CellContext`withSolution$$], ImageSize -> 80],
          Manipulate`Place[1], 
          Spacer[50], 
          Manipulate`Place[2]}]], Manipulate`Dump`ThisIsNotAControl}}, 
-    Typeset`size$$ = {383., {311., 318.}}, Typeset`update$$ = 0, 
+    Typeset`size$$ = {472., {307., 314.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`withResult$304$$ = 
-    False, $CellContext`withSolution$305$$ = False}, 
+    True, $CellContext`withResult$597$$ = 
+    False, $CellContext`withSolution$602$$ = False}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`withResult$$ = 
         True, $CellContext`withSolution$$ = True}, "ControllerVariables" :> {
-        Hold[$CellContext`withResult$$, $CellContext`withResult$304$$, False], 
-        Hold[$CellContext`withSolution$$, $CellContext`withSolution$305$$, 
+        Hold[$CellContext`withResult$$, $CellContext`withResult$597$$, False], 
+        Hold[$CellContext`withSolution$$, $CellContext`withSolution$602$$, 
          False]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
@@ -373,7 +367,7 @@ $CellContext`withSolution$$], ImageSize -> 80],
           Manipulate`Place[1], 
           Spacer[50], 
           Manipulate`Place[2]}]}, "Options" :> {}, "DefaultOptions" :> {}],
-     ImageSizeCache->{1063., {378., 385.}},
+     ImageSizeCache->{1063., {374., 381.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -392,7 +386,9 @@ $CellContext`withSolution$$], ImageSize -> 80],
    3.827205412050756*^9, 3.8272054724406633`*^9, 3.827205786203446*^9, 
    3.827205832119171*^9, 3.827205959935604*^9, 3.8272060727038403`*^9, 
    3.827206201627912*^9, 3.8272063029096766`*^9, 3.8272064010514317`*^9, 
-   3.827206473540553*^9, 3.827206511021984*^9, 3.827206553304077*^9}]
+   3.827206473540553*^9, 3.827206511021984*^9, 3.827206553304077*^9, 
+   3.827327881393839*^9, {3.827327934518297*^9, 3.8273279494735765`*^9}, {
+   3.8273280305889425`*^9, 3.8273280490627937`*^9}, 3.827328110960253*^9}]
 }, Open  ]]
 },
 WindowSize->{1264, 583},
@@ -414,8 +410,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 11471, 256, 1934, "Input"],
-Cell[12053, 280, 5168, 114, 787, "Output"]
+Cell[579, 22, 11103, 250, 1961, "Input"],
+Cell[11685, 274, 5318, 116, 779, "Output"]
 }, Open  ]]
 }
 ]
