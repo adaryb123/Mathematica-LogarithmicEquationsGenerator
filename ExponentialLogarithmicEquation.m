@@ -1,9 +1,8 @@
 (* ::Package:: *)
 
-(*Mathematica Package*)
+(*Package with functions to generate and solve Exponential Logarithmic Equations*)
 
-(*Mathematica Package*)BeginPackage["ExponentialLogarithmicEquation`"]
-(*Exported symbols added here with SymbolName::usage*)
+BeginPackage["ExponentialLogarithmicEquation`"]
 
 generateExponentialLogarithmicEquation::usage="
 ggenerateExponentialLogarithmicEquation[]
@@ -15,7 +14,7 @@ solveExponentialLogarithmicEquation[equation_]
  - returns List of step by step solution
 ";
 
-Begin["`Private`"] (*Begin Private Context*)
+Begin["`Private`"] 
 
 
 maskBody[body_,base_]:=
@@ -99,7 +98,7 @@ Module[{steps,fullForm,base,body,result,step,rightSide,constantPart,exponentialP
 ]
 
 
-End[] (*End Private Context*)
+End[] 
 
 EndPackage[]
 

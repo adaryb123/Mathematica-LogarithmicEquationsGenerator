@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     30870,        763]
-NotebookOptionsPosition[     29711,        722]
-NotebookOutlinePosition[     30177,        740]
-CellTagsIndexPosition[     30134,        737]
+NotebookDataLength[     32411,        780]
+NotebookOptionsPosition[     31252,        739]
+NotebookOutlinePosition[     31718,        757]
+CellTagsIndexPosition[     31675,        754]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,20 +25,22 @@ Cell["Guide:", "Subtitle",
   3.8287712012305036`*^9, {3.828772048853721*^9, 3.8287720494131527`*^9}}],
 
 Cell["\<\
-Run the \[OpenCurlyDoubleQuote]Code\[CloseCurlyDoubleQuote] cell - a GUI will \
+Run the \[OpenCurlyDoubleQuote]Code\[CloseCurlyDoubleQuote] cell. A GUI will \
 appear at the bottom.\
 \>", "Subsection",
  CellChangeTimes->{
   3.8287712221066947`*^9, {3.8287712560527134`*^9, 3.8287712580212193`*^9}, 
    3.8287718422064667`*^9, {3.8287720767914457`*^9, 3.8287720783585935`*^9}, {
-   3.8287721093113346`*^9, 3.8287721097093196`*^9}}],
+   3.8287721093113346`*^9, 3.8287721097093196`*^9}, {3.828772674957994*^9, 
+   3.8287726771550803`*^9}}],
 
 Cell[CellGroupData[{
 
 Cell["\<\
-Choose the type of the equation u want to generate. There are 5 types:\
+Choose the type of the equation you want to generate. There are 5 types:\
 \>", "Subsection",
- CellChangeTimes->{3.8287712651957593`*^9}],
+ CellChangeTimes->{
+  3.8287712651957593`*^9, {3.8287726597822733`*^9, 3.828772660191725*^9}}],
 
 Cell["Basic:", "Item",
  CellChangeTimes->{3.828771290376408*^9},
@@ -140,11 +142,12 @@ Cell[BoxData[
 
 Cell["\<\
 Set the 2 checkboxes: \[OpenCurlyDoubleQuote]Show result\
-\[CloseCurlyDoubleQuote] and \[OpenCurlyDoubleQuote]show solutions\
+\[CloseCurlyDoubleQuote] and \[OpenCurlyDoubleQuote]Show solutions\
 \[CloseCurlyDoubleQuote] as you preffer.\
 \>", "Subsection",
  CellChangeTimes->{{3.8287718159623566`*^9, 3.8287718382435055`*^9}, {
-  3.8287720122023*^9, 3.8287720130105443`*^9}}],
+  3.8287720122023*^9, 3.8287720130105443`*^9}, {3.8287726896433887`*^9, 
+  3.82877268974567*^9}}],
 
 Cell["\<\
 Use the button \[OpenCurlyDoubleQuote]Same\[CloseCurlyDoubleQuote]  to \
@@ -169,7 +172,7 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{Cell["", "InitializationSection"], 
-   RowBox[{"Needs", "[", "\"\<SimpleLogarithmicEquation`\>\"", "]"}]}], 
+   RowBox[{"Needs", "[", "\"\<BasicLogarithmicEquation`\>\"", "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{Cell["", "InitializationSection"], 
@@ -217,7 +220,7 @@ Cell[BoxData[{
         RowBox[{"equationType", " ", "\[Equal]", " ", "\"\<BASIC\>\""}], ",", 
         "\[IndentingNewLine]", 
         RowBox[{"equationAndXValue", "=", 
-         RowBox[{"generateSimpleLogarithmicEquation", "[", "]"}]}], ",", 
+         RowBox[{"generateBasicLogarithmicEquation", "[", "]"}]}], ",", 
         "\[IndentingNewLine]", 
         RowBox[{"equationType", " ", "\[Equal]", " ", "\"\<ADDITION\>\""}], 
         ",", "\[IndentingNewLine]", 
@@ -296,9 +299,8 @@ Cell[BoxData[{
            RowBox[{"equationType", " ", "\[Equal]", " ", "\"\<BASIC\>\""}], 
            ",", "\[IndentingNewLine]", 
            RowBox[{"stepsAndExplanations", " ", "=", " ", 
-            RowBox[{
-            "solveSimpleLogarithmicEquation", "[", "equation", "]"}]}], ",", 
-           "\[IndentingNewLine]", 
+            RowBox[{"solveBasicLogarithmicEquation", "[", "equation", "]"}]}],
+            ",", "\[IndentingNewLine]", 
            RowBox[{"equationType", " ", "\[Equal]", " ", "\"\<ADDITION\>\""}],
             ",", "\[IndentingNewLine]", 
            RowBox[{"stepsAndExplanations", " ", "=", " ", 
@@ -432,9 +434,8 @@ Cell[BoxData[{
            RowBox[{"equationType", " ", "\[Equal]", " ", "\"\<BASIC\>\""}], 
            ",", "\[IndentingNewLine]", 
            RowBox[{"stepsAndExplanations", " ", "=", " ", 
-            RowBox[{
-            "solveSimpleLogarithmicEquation", "[", "equation", "]"}]}], ",", 
-           "\[IndentingNewLine]", 
+            RowBox[{"solveBasicLogarithmicEquation", "[", "equation", "]"}]}],
+            ",", "\[IndentingNewLine]", 
            RowBox[{"equationType", " ", "\[Equal]", " ", "\"\<ADDITION\>\""}],
             ",", "\[IndentingNewLine]", 
            RowBox[{"stepsAndExplanations", " ", "=", " ", 
@@ -582,19 +583,34 @@ Cell[BoxData[{
           RowBox[{"withResult", ",", "withSolution"}], "]"}]}], ",", 
         RowBox[{"ImageSize", "->", "80"}]}], "]"}]}], "\[IndentingNewLine]", 
      "}"}], "]"}]}], " ", "]"}], "\[IndentingNewLine]"}], "Input",
- CellChangeTimes->CompressedData["
-1:eJwdzltI03EYxvERQwK3btShS8KiNp120IarMcpNkXlCPBAxEWSxpFi4XcyN
-KHMs/4xaDhbroKgsZ2sXMpFZI2GNTVaI6NJwEiILhxXtAIOajWnt+V28fO6+
-z3tSPtCpOEKj0Ti5g9tVfM8HQ0z8itdL3Ayd8cG6vmt+KNTotmG9kr0Lrfxv
-36H79ZMkfOP4+geu0vVFPnR6Zceh17Z4Agobhy/D8om9BsgM/JXCTFjXBIeC
-X9ph2RK3CzI+vlDAiq0VFczKgoOku96hhZw7JWaY/1NODN9mW6GEoXtGdvI2
-x2HSNjwFS9dss/BSu8gL6a3LlZ9zFo4WVsPQdZOS8TAmtkhUd2Ezv80AWSkz
-8cGGwwgf2Z8/JsZLSl1UTHwxxid6W5ZOwwGOngv7ejxnISP0shqGsocCaPnt
-7ofUOaMasjYkgzDCVN6DotrIfTh2c5KCPHWNEWboR02w7N8NYoPLMw3VC5QT
-bt3KvIfp1ZFFuKP95YfBNvsKfCtYD0MVXRoh/0W7o6Sz8/QHVF4tiEPahYIE
-THbMpKGP924fnqeuHMDD6fSxuZyjVE8xrHSmTkH/J44AJsZtImhyBMTzOTVC
-ZyP8D/4XTqY=
-  "],
+ CellChangeTimes->{{3.827170753630476*^9, 3.827170754911454*^9}, {
+   3.8271708171817427`*^9, 3.8271708346992493`*^9}, {3.82717104376431*^9, 
+   3.8271710968257155`*^9}, {3.8271711350376687`*^9, 
+   3.8271711964265995`*^9}, {3.827171254832966*^9, 3.8271715000318365`*^9}, {
+   3.82717154682393*^9, 3.827171573863494*^9}, {3.8271717880085726`*^9, 
+   3.827171879206684*^9}, {3.82717191180506*^9, 3.8271719157763643`*^9}, {
+   3.82717196664923*^9, 3.827171993242691*^9}, {3.8271721407742977`*^9, 
+   3.8271722304013867`*^9}, {3.8271722781986065`*^9, 3.827172282556962*^9}, {
+   3.827172472794574*^9, 3.8271724750909476`*^9}, {3.827172520825542*^9, 
+   3.8271725317514963`*^9}, {3.8271725746882515`*^9, 
+   3.8271726040197673`*^9}, {3.827172717056532*^9, 3.8271728498846703`*^9}, {
+   3.8272064943217793`*^9, 3.8272065366423435`*^9}, {3.8273278443858414`*^9, 
+   3.8273279555081263`*^9}, {3.827328026412633*^9, 3.8273280284983015`*^9}, {
+   3.8273280692445674`*^9, 3.8273280927388353`*^9}, {3.8287096008102465`*^9, 
+   3.828709601653833*^9}, {3.828709670134246*^9, 3.8287096920359416`*^9}, {
+   3.828709741761154*^9, 3.8287097728066463`*^9}, {3.828709823968361*^9, 
+   3.828710205654977*^9}, {3.828710284255679*^9, 3.8287103220882673`*^9}, {
+   3.8287103713766937`*^9, 3.8287103830066204`*^9}, {3.8287104529500246`*^9, 
+   3.828710465576314*^9}, {3.8287104962506075`*^9, 3.828710499124893*^9}, {
+   3.8287106857713947`*^9, 3.8287107322096486`*^9}, {3.8287108718254204`*^9, 
+   3.8287108761815143`*^9}, {3.828710935358382*^9, 3.828711013134494*^9}, {
+   3.8287111025693007`*^9, 3.8287111702505417`*^9}, {3.828711202652878*^9, 
+   3.828711236620882*^9}, {3.828711272601492*^9, 3.8287112805996094`*^9}, {
+   3.8287113571662517`*^9, 3.8287113657239685`*^9}, {3.82871140195388*^9, 
+   3.8287115437387686`*^9}, {3.828711618860175*^9, 3.8287117035831504`*^9}, {
+   3.8287118652120066`*^9, 3.8287119090502844`*^9}, {3.8287160461142025`*^9, 
+   3.828716085288386*^9}, {3.8287730650803823`*^9, 3.8287730949187317`*^9}, 
+   3.828773127526464*^9},
  EmphasizeSyntaxErrors->True],
 
 Cell[BoxData[
@@ -646,15 +662,15 @@ $CellContext`withSolution$$], ImageSize -> 80],
 $CellContext`repeatGeneratedEquation[$CellContext`withResult$$, \
 $CellContext`withSolution$$], ImageSize -> 80]}]], 
       Manipulate`Dump`ThisIsNotAControl}}, Typeset`size$$ = {
-    386., {238., 245.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`withResult$616$$ = 
-    False, $CellContext`withSolution$617$$ = False}, 
+    253., {149., 156.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`withResult$622$$ = 
+    False, $CellContext`withSolution$623$$ = False}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`withResult$$ = 
         True, $CellContext`withSolution$$ = True}, "ControllerVariables" :> {
-        Hold[$CellContext`withResult$$, $CellContext`withResult$616$$, False], 
-        Hold[$CellContext`withSolution$$, $CellContext`withSolution$617$$, 
+        Hold[$CellContext`withResult$$, $CellContext`withResult$622$$, False], 
+        Hold[$CellContext`withSolution$$, $CellContext`withSolution$623$$, 
          False]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
@@ -703,7 +719,7 @@ $CellContext`withSolution$$], ImageSize -> 80],
 $CellContext`repeatGeneratedEquation[$CellContext`withResult$$, \
 $CellContext`withSolution$$], ImageSize -> 80]}]}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{1045., {296., 303.}},
+     ImageSizeCache->{1045., {207., 214.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -716,7 +732,8 @@ $CellContext`withSolution$$], ImageSize -> 80]}]}, "Options" :> {},
  CellChangeTimes->{{3.8287114789038496`*^9, 3.8287115458101287`*^9}, 
    3.828711629058416*^9, {3.828711677629607*^9, 3.8287117052598734`*^9}, 
    3.8287119099875345`*^9, {3.828716053344762*^9, 3.8287160872369347`*^9}, 
-   3.828771078630414*^9, 3.8287720271266165`*^9}]
+   3.828771078630414*^9, 3.8287720271266165`*^9, 3.828772934447317*^9, 
+   3.8287731453126717`*^9}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -741,28 +758,28 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[579, 22, 121, 2, 62, "Subtitle"],
-Cell[703, 26, 360, 7, 46, "Subsection"],
+Cell[703, 26, 411, 8, 46, "Subsection"],
 Cell[CellGroupData[{
-Cell[1088, 37, 144, 3, 35, "Subsection"],
-Cell[1235, 42, 79, 2, 32, "Item"],
-Cell[1317, 46, 393, 11, 39, "Text"],
-Cell[1713, 59, 130, 3, 32, "Item"],
-Cell[1846, 64, 493, 15, 39, "Text"],
-Cell[2342, 81, 85, 2, 32, "Item"],
-Cell[2430, 85, 493, 15, 39, "Text"],
-Cell[2926, 102, 83, 2, 32, "Item"],
-Cell[3012, 106, 566, 15, 44, "Text"],
-Cell[3581, 123, 87, 2, 32, "Item"],
-Cell[3671, 127, 342, 10, 39, "Text"]
+Cell[1139, 38, 197, 4, 35, "Subsection"],
+Cell[1339, 44, 79, 2, 32, "Item"],
+Cell[1421, 48, 393, 11, 39, "Text"],
+Cell[1817, 61, 130, 3, 32, "Item"],
+Cell[1950, 66, 493, 15, 39, "Text"],
+Cell[2446, 83, 85, 2, 32, "Item"],
+Cell[2534, 87, 493, 15, 39, "Text"],
+Cell[3030, 104, 83, 2, 32, "Item"],
+Cell[3116, 108, 566, 15, 44, "Text"],
+Cell[3685, 125, 87, 2, 32, "Item"],
+Cell[3775, 129, 342, 10, 39, "Text"]
 }, Open  ]],
-Cell[4028, 140, 315, 6, 46, "Subsection"],
-Cell[4346, 148, 268, 6, 58, "Subsection"]
+Cell[4132, 142, 365, 7, 46, "Subsection"],
+Cell[4500, 151, 268, 6, 58, "Subsection"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4651, 159, 95, 1, 62, "Subtitle"],
+Cell[4805, 162, 95, 1, 62, "Subtitle"],
 Cell[CellGroupData[{
-Cell[4771, 164, 19724, 433, 2698, "Input"],
-Cell[24498, 599, 5185, 119, 619, "Output"]
+Cell[4925, 167, 21061, 446, 2698, "Input"],
+Cell[25989, 615, 5235, 120, 441, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

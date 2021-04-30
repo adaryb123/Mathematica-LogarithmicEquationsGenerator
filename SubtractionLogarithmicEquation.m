@@ -1,9 +1,8 @@
 (* ::Package:: *)
 
-(*Mathematica Package*)
+(*Package with functions to generate and solve Subtraction Logarithmic Equations*)
 
-(*Mathematica Package*)BeginPackage["SubtractionLogarithmicEquation`"]
-(*Exported symbols added here with SymbolName::usage*)
+BeginPackage["SubtractionLogarithmicEquation`"]
 
 generateSubtractionLogarithmicEquation::usage="
 generateSubtractionLogarithmicEquation[]
@@ -15,7 +14,7 @@ solveSubtractionLogarithmicEquation[equation_]
  - returns List of step by step solution
 ";
 
-Begin["`Private`"] (*Begin Private Context*)
+Begin["`Private`"] 
 
 maskNumbers[number1_,number2_] := Module[{smallerNumber,unknownVariable, coefficient1, remainder1, coefficient2, remainder2, expression1,expression2,biggerNumber,badNumbers},
 	
@@ -116,6 +115,6 @@ AppendTo[explanations," "];
 
 
 
-End[] (*End Private Context*)
+End[] 
 
 EndPackage[]

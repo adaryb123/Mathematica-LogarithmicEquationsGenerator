@@ -1,9 +1,8 @@
 (* ::Package:: *)
 
-(*Mathematica Package*)
+(*Package with functions to generate and solve Addition Logarithmic Equations*)
 
-(*Mathematica Package*)BeginPackage["AdditionLogarithmicEquation`"]
-(*Exported symbols added here with SymbolName::usage*)
+BeginPackage["AdditionLogarithmicEquation`"]
 
 generateAdditionLogarithmicEquation::usage="
 generateAdditionLogarithmicEquation[]
@@ -15,7 +14,7 @@ solveAdditionLogarithmicEquation[equation_]
  - returns List of step by step solution
 ";
 
-Begin["`Private`"] (*Begin Private Context*)
+Begin["`Private`"]
 
 
 
@@ -254,7 +253,7 @@ Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step,leftSide,con
 ]
 
 
-End[] (*End Private Context*)
+End[]
 
 EndPackage[]
 

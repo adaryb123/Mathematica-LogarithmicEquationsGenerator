@@ -1,9 +1,8 @@
 (* ::Package:: *)
 
-(*Mathematica Package*)
+(*Package with functions to generate and solve Quadratic Logarithmic Equations*)
 
-(*Mathematica Package*)BeginPackage["QuadraticLogarithmicEquation`"]
-(*Exported symbols added here with SymbolName::usage*)
+BeginPackage["QuadraticLogarithmicEquation`"]
 
 generateQuadraticLogarithmicEquation::usage="
 generateQuadraticLogarithmicEquation[]
@@ -15,7 +14,7 @@ solveQuadraticLogarithmicEquation[equation_]
  - returns List of step by step solution
 ";
 
-Begin["`Private`"] (*Begin Private Context*)
+Begin["`Private`"] 
 
 makeString[base_,body_,a_,b_,c_, result_]:= Return[HoldForm[a*Log[base,body]^2 + b*Log[base,body] + c == result]]
 
@@ -177,7 +176,7 @@ Module[{steps,fullForm,base,string,step,constantCoeff,linearPart,quadraticPart, 
 ]
 
 
-End[] (*End Private Context*)
+End[] 
 
 EndPackage[]
 

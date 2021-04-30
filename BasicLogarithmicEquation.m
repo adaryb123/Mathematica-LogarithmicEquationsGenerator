@@ -1,17 +1,16 @@
 (* ::Package:: *)
 
-(*Mathematica Package*)
+(*Package with functions to generate and solve Basic Logarithmic Equations*)
 
-(*Mathematica Package*)BeginPackage["SimpleLogarithmicEquation`"]
-(*Exported symbols added here with SymbolName::usage*)
+BeginPackage["BasicLogarithmicEquation`"]
 
-generateSimpleLogarithmicEquation::usage="
-generateSimpleLogarithmicEquation[]
+generateBasicLogarithmicEquation::usage="
+generateBasicLogarithmicEquation[]
  - returns List with 2 elemets, equation and X value
 ";
 
-solveSimpleLogarithmicEquation::usage="
-solveSimpleLogarithmicEquation[equation_]
+solveBasicLogarithmicEquation::usage="
+solveBasicLogarithmicEquation[equation_]
  - returns List of step by step solution
 ";
 
@@ -34,7 +33,7 @@ Module[{expression,unknownVariable,coefficient,remainder,transformChance,transfo
 
 makeString[base_,body_, result_]:= Return[HoldForm[Log[base,body] == result]]
 
-generateSimpleLogarithmicEquation[]:=
+generateBasicLogarithmicEquation[]:=
 Module[{result,body,base,returnValues,maskedBody,results,equation,xValue},
 	results = Range[6];
 	While[True,
@@ -51,7 +50,7 @@ Module[{result,body,base,returnValues,maskedBody,results,equation,xValue},
 ]
 ]
 
-solveSimpleLogarithmicEquation[equation_]:=
+solveBasicLogarithmicEquation[equation_]:=
 Module[{steps,fullForm,step,linearPart,constantPart,base,body,result,coefficient,rightSide,xValue,string,explanations,explanation},
 	steps = List[];
     explanations = List[];
@@ -83,7 +82,7 @@ Module[{steps,fullForm,step,linearPart,constantPart,base,body,result,coefficient
 	Return[List[steps,explanations]];
 ]
 
-End[] (*End Private Context*)
+End[] 
 
 EndPackage[]
 
