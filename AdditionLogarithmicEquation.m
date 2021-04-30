@@ -83,13 +83,12 @@ x2 = Subtract[Minus[b],Sqrt[discriminant]]/(2*a);
 acceptedValues = Range[-10,10];
 If[!MemberQ[acceptedValues,x1] || !MemberQ[acceptedValues,x2], Continue[]];
 ],Continue[]]];
-
 unknownVariable = Part[returnValues,3];
-	remainder1 = Part[returnValues,4];
-	remainder2 = Part[returnValues,5];
-	equation = makeString[base,maskedBody1,maskedBody2,result];
-	Return[List[equation,unknownVariable]]
-	];
+remainder1 = Part[returnValues,4];
+remainder2 = Part[returnValues,5];
+equation = makeString[base,maskedBody1,maskedBody2,result];
+Return[List[equation,unknownVariable]]
+]
 ]
 
 testXValues[x1_,x2_,body1_,body2_]:= Module[{steps,result,constantCoef1,constantCoef2,linearCoef1,linearCoef2,number1,number2,string,step},
