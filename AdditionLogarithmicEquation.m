@@ -142,7 +142,7 @@ Module[{a,b,c,gcd,newEquation,newA,newB,newC,gcdStep,discriminant,steps,x1,x2,st
 	c= c/gcd;
 	gcdStep = a* "x"^2 +b *"x" + c ==0;
 	AppendTo[steps,gcdStep];
-  explanation = DisplayForm[RowBox[{"/",gcd}]];
+  explanation = DisplayForm[RowBox[{"/(",gcd,")"}]];
   AppendTo[explanations,explanation];
 
 	];

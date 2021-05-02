@@ -103,7 +103,7 @@ Module[{steps,fullForm,base,body1,body2,rightSide,combinedBody,step,leftSide,,st
     AppendTo[explanations,explanation];
 	constantPart = leftSide[[1]];
 	Quiet[Check[coefficient = leftSide[[2,1]];xValue = -constantPart/coefficient;
-		explanation = DisplayForm[RowBox[{"/",coefficient}]];
+		explanation = DisplayForm[RowBox[{"/(",coefficient,")"}]];
 		AppendTo[explanations,explanation],
 			xValue = -constantPart]];
 	string = xValue //InputForm;
