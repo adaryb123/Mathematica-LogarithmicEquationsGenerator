@@ -24,7 +24,7 @@ While[True,
 	unknownVariable = RandomInteger[{-10,10}];
  
 	linearCoefficient  = number - unknownVariable;
-expression = "x" + linearCoefficient ;
+expression = "x" + linearCoefficient;
 	badNumbers = Range[-1,1];
     If[MemberQ[badNumbers,linearCoefficient],Continue[]];
     If[MemberQ[badNumbers,unknownVariable],Continue[]];
@@ -50,7 +50,8 @@ expression = "x"^2 + linearCoefficient * "x" + constantPart;
 ]
     ]
 
-makeString[base_,body_, result_]:= Return[HoldForm[Log[base,body] == result]]
+makeString[base_,body_, result_]:=
+Return[HoldForm[Log[base,body] == result]]
 
 comparePolynomial[poly1_,poly2_] :=Module[{linearCoef1,linearCoef2,constant1,constant2},
 linearCoef1 = poly1[[2]];
