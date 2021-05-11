@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     47821,       1101]
-NotebookOptionsPosition[     46586,       1058]
-NotebookOutlinePosition[     47052,       1076]
-CellTagsIndexPosition[     47009,       1073]
+NotebookDataLength[     49010,       1123]
+NotebookOptionsPosition[     47775,       1080]
+NotebookOutlinePosition[     48241,       1098]
+CellTagsIndexPosition[     48198,       1095]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -738,15 +738,18 @@ Cell[BoxData[
             RowBox[{
             "\"\<SIMPLE\>\"", ",", "withResult", ",", "withSolution"}], 
             "]"}]}], ",", 
-          RowBox[{"ImageSize", "->", "80"}]}], "]"}], ",", " ", 
+          RowBox[{"ImageSize", "\[Rule]", " ", "100"}]}], "]"}], ",", " ", 
         "\[IndentingNewLine]", 
+        RowBox[{"Spacer", "[", "10", "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{"Button", "[", 
          RowBox[{"\"\<Base\>\"", ",", 
           RowBox[{"textOutput", " ", "=", " ", 
            RowBox[{"generateSelectedEquation", "[", 
             RowBox[{"\"\<BASE\>\"", ",", "withResult", ",", "withSolution"}], 
             "]"}]}], ",", 
-          RowBox[{"ImageSize", "->", "80"}]}], "]"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "100"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Spacer", "[", "10", "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{"Button", "[", 
          RowBox[{"\"\<Addition\>\"", ",", 
           RowBox[{"textOutput", " ", "=", " ", 
@@ -754,8 +757,9 @@ Cell[BoxData[
             RowBox[{
             "\"\<ADDITION\>\"", ",", "withResult", ",", "withSolution"}], 
             "]"}]}], ",", 
-          RowBox[{"ImageSize", "->", "80"}]}], "]"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "100"}]}], "]"}], ",", 
         "\[IndentingNewLine]", 
+        RowBox[{"Spacer", "[", "10", "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{"Button", "[", 
          RowBox[{"\"\<Subtraction\>\"", ",", 
           RowBox[{"textOutput", " ", "=", " ", 
@@ -763,8 +767,9 @@ Cell[BoxData[
             RowBox[{
             "\"\<SUBTRACTION\>\"", ",", "withResult", ",", "withSolution"}], 
             "]"}]}], ",", 
-          RowBox[{"ImageSize", "->", "80"}]}], "]"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "100"}]}], "]"}], ",", 
         "\[IndentingNewLine]", 
+        RowBox[{"Spacer", "[", "10", "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{"Button", "[", 
          RowBox[{"\"\<Quadratic\>\"", ",", 
           RowBox[{"textOutput", " ", "=", " ", 
@@ -772,8 +777,9 @@ Cell[BoxData[
             RowBox[{
             "\"\<QUADRATIC\>\"", ",", "withResult", ",", "withSolution"}], 
             "]"}]}], ",", 
-          RowBox[{"ImageSize", "->", "80"}]}], "]"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "100"}]}], "]"}], ",", 
         "\[IndentingNewLine]", 
+        RowBox[{"Spacer", "[", "10", "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{"Button", "[", 
          RowBox[{"\"\<Exponential\>\"", ",", 
           RowBox[{"textOutput", " ", "=", " ", 
@@ -781,22 +787,22 @@ Cell[BoxData[
             RowBox[{
             "\"\<EXPONENTIAL\>\"", ",", "withResult", ",", "withSolution"}], 
             "]"}]}], ",", 
-          RowBox[{"ImageSize", "->", "80"}]}], "]"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "100"}]}], "]"}], ",", 
         "\[IndentingNewLine]", 
-        RowBox[{"Spacer", "[", "200", "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Spacer", "[", "150", "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{"Button", "[", 
          RowBox[{"\"\<Same\>\"", ",", 
           RowBox[{"textOutput", " ", "=", " ", 
            RowBox[{"repeatGeneratedEquation", "[", 
             RowBox[{"withResult", ",", "withSolution"}], "]"}]}], ",", 
-          RowBox[{"ImageSize", "->", "80"}]}], "]"}]}], "}"}], "]"}], ",", 
-     "\[IndentingNewLine]", 
+          RowBox[{"ImageSize", "\[Rule]", "100"}]}], "]"}]}], "}"}], "]"}], 
+     ",", "\[IndentingNewLine]", 
      RowBox[{"Row", "[", 
       RowBox[{"{", "}"}], "]"}], ",", "\[IndentingNewLine]", 
      RowBox[{"Row", "[", 
       RowBox[{"{", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{"Spacer", "[", "30", "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Spacer", "[", "40", "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{"Control", "[", 
          RowBox[{"{", 
           RowBox[{
@@ -806,7 +812,7 @@ Cell[BoxData[
            RowBox[{"{", 
             RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "]"}], ",", 
         "\[IndentingNewLine]", 
-        RowBox[{"Spacer", "[", "30", "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Spacer", "[", "40", "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{"Control", "[", 
          RowBox[{"{", 
           RowBox[{
@@ -817,7 +823,7 @@ Cell[BoxData[
            RowBox[{"{", 
             RowBox[{"True", ",", "False"}], "}"}]}], "}"}], "]"}], ",", 
         "\[IndentingNewLine]", 
-        RowBox[{"Spacer", "[", "30", "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Spacer", "[", "40", "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{"Control", "[", 
          RowBox[{"{", 
           RowBox[{
@@ -829,7 +835,7 @@ Cell[BoxData[
        "\[IndentingNewLine]", "}"}], "]"}], " ", ",", 
      RowBox[{"ContentSize", "\[Rule]", " ", 
       RowBox[{"{", 
-       RowBox[{"800", ",", "350"}], "}"}]}], ",", 
+       RowBox[{"900", ",", "350"}], "}"}]}], ",", 
      RowBox[{"BaseStyle", "\[Rule]", 
       RowBox[{"FontSize", "\[Rule]", "15"}]}]}], "]"}], 
    "\[IndentingNewLine]"}]}]], "Input",
@@ -885,8 +891,10 @@ Cell[BoxData[
    3.8293188528591833`*^9}, {3.8293189472426*^9, 3.8293189792694664`*^9}, {
    3.829319038178278*^9, 3.8293190715298123`*^9}, {3.8293191124580564`*^9, 
    3.8293191537831182`*^9}, {3.8294534472731953`*^9, 
-   3.8294538790011454`*^9}, {3.8294539291500864`*^9, 3.8294540125165696`*^9}},
- EmphasizeSyntaxErrors->True],
+   3.8294538790011454`*^9}, {3.8294539291500864`*^9, 
+   3.8294540125165696`*^9}, {3.8295416903873987`*^9, 3.829541693060278*^9}, {
+   3.8295720992563477`*^9, 3.829572100507247*^9}, {3.8297149552251625`*^9, 
+   3.8297150910891294`*^9}, {3.8297151777984333`*^9, 3.829715184328144*^9}}],
 
 Cell[BoxData[
  TagBox[
@@ -902,37 +910,42 @@ Cell[BoxData[
          "Simple", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
            "SIMPLE", $CellContext`withResult$$, $CellContext`withSolution$$], 
-          ImageSize -> 80], 
+          ImageSize -> 100], 
+         Spacer[10], 
          Button[
          "Base", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
            "BASE", $CellContext`withResult$$, $CellContext`withSolution$$], 
-          ImageSize -> 80], 
+          ImageSize -> 100], 
+         Spacer[10], 
          Button[
          "Addition", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
            "ADDITION", $CellContext`withResult$$, \
-$CellContext`withSolution$$], ImageSize -> 80], 
+$CellContext`withSolution$$], ImageSize -> 100], 
+         Spacer[10], 
          Button[
          "Subtraction", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
            "SUBTRACTION", $CellContext`withResult$$, \
-$CellContext`withSolution$$], ImageSize -> 80], 
+$CellContext`withSolution$$], ImageSize -> 100], 
+         Spacer[10], 
          Button[
          "Quadratic", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
            "QUADRATIC", $CellContext`withResult$$, \
-$CellContext`withSolution$$], ImageSize -> 80], 
+$CellContext`withSolution$$], ImageSize -> 100], 
+         Spacer[10], 
          Button[
          "Exponential", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
            "EXPONENTIAL", $CellContext`withResult$$, \
-$CellContext`withSolution$$], ImageSize -> 80], 
-         Spacer[200], 
+$CellContext`withSolution$$], ImageSize -> 100], 
+         Spacer[150], 
          Button[
          "Same", $CellContext`textOutput = \
 $CellContext`repeatGeneratedEquation[$CellContext`withResult$$, \
-$CellContext`withSolution$$], ImageSize -> 80]}]], 
+$CellContext`withSolution$$], ImageSize -> 100]}]], 
       Manipulate`Dump`ThisIsNotAControl}, {
       Hold[
        Row[{}]], Manipulate`Dump`ThisIsNotAControl}, {{
@@ -943,27 +956,28 @@ $CellContext`withSolution$$], ImageSize -> 80]}]],
        Hold[$CellContext`withGraph$$], True, "Show graph"}, {True, False}}, {
       Hold[
        Row[{
-         Spacer[30], 
+         Spacer[40], 
          Manipulate`Place[1], 
-         Spacer[30], 
+         Spacer[40], 
          Manipulate`Place[2], 
-         Spacer[30], 
+         Spacer[40], 
          Manipulate`Place[3]}]], Manipulate`Dump`ThisIsNotAControl}}, 
-    Typeset`size$$ = {730., {401.5, 410.5}}, Typeset`update$$ = 0, 
+    Typeset`size$$ = {627., {352., 361.}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`withResult$617$$ = 
-    False, $CellContext`withSolution$618$$ = 
-    False, $CellContext`withGraph$619$$ = False}, 
+    True, $CellContext`withResult$1480$$ = 
+    False, $CellContext`withSolution$1481$$ = 
+    False, $CellContext`withGraph$1482$$ = False}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      2, StandardForm, 
       "Variables" :> {$CellContext`withGraph$$ = 
         True, $CellContext`withResult$$ = True, $CellContext`withSolution$$ = 
         True}, "ControllerVariables" :> {
-        Hold[$CellContext`withResult$$, $CellContext`withResult$617$$, False], 
-        Hold[$CellContext`withSolution$$, $CellContext`withSolution$618$$, 
+        Hold[$CellContext`withResult$$, $CellContext`withResult$1480$$, 
          False], 
-        Hold[$CellContext`withGraph$$, $CellContext`withGraph$619$$, False]}, 
-      "OtherVariables" :> {
+        Hold[$CellContext`withSolution$$, $CellContext`withSolution$1481$$, 
+         False], 
+        Hold[$CellContext`withGraph$$, $CellContext`withGraph$1482$$, False]},
+       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
@@ -975,38 +989,42 @@ $CellContext`withSolution$$], ImageSize -> 80]}]],
           "Simple", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
             "SIMPLE", $CellContext`withResult$$, $CellContext`withSolution$$],
-            ImageSize -> 80], 
+            ImageSize -> 100], 
+          Spacer[10], 
           Button[
           "Base", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
             "BASE", $CellContext`withResult$$, $CellContext`withSolution$$], 
-           ImageSize -> 80], 
+           ImageSize -> 100], 
+          Spacer[10], 
           Button[
           "Addition", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
-            
             "ADDITION", $CellContext`withResult$$, \
-$CellContext`withSolution$$], ImageSize -> 80], 
+$CellContext`withSolution$$], ImageSize -> 100], 
+          Spacer[10], 
           Button[
           "Subtraction", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
             "SUBTRACTION", $CellContext`withResult$$, \
-$CellContext`withSolution$$], ImageSize -> 80], 
+$CellContext`withSolution$$], ImageSize -> 100], 
+          Spacer[10], 
           Button[
           "Quadratic", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
             "QUADRATIC", $CellContext`withResult$$, \
-$CellContext`withSolution$$], ImageSize -> 80], 
+$CellContext`withSolution$$], ImageSize -> 100], 
+          Spacer[10], 
           Button[
           "Exponential", $CellContext`textOutput = \
 $CellContext`generateSelectedEquation[
             "EXPONENTIAL", $CellContext`withResult$$, \
-$CellContext`withSolution$$], ImageSize -> 80], 
-          Spacer[200], 
+$CellContext`withSolution$$], ImageSize -> 100], 
+          Spacer[150], 
           Button[
           "Same", $CellContext`textOutput = \
 $CellContext`repeatGeneratedEquation[$CellContext`withResult$$, \
-$CellContext`withSolution$$], ImageSize -> 80]}], 
+$CellContext`withSolution$$], ImageSize -> 100]}], 
         Row[{}], {{$CellContext`withResult$$, True, "Show results"}, {
          True, False}, ControlPlacement -> 
          1}, {{$CellContext`withSolution$$, True, "Show solutions"}, {
@@ -1014,15 +1032,15 @@ $CellContext`withSolution$$], ImageSize -> 80]}],
          2}, {{$CellContext`withGraph$$, True, "Show graph"}, {True, False}, 
          ControlPlacement -> 3}, 
         Row[{
-          Spacer[30], 
+          Spacer[40], 
           Manipulate`Place[1], 
-          Spacer[30], 
+          Spacer[40], 
           Manipulate`Place[2], 
-          Spacer[30], 
+          Spacer[40], 
           Manipulate`Place[3]}]}, 
-      "Options" :> {ContentSize -> {800, 350}, BaseStyle -> (FontSize -> 15)},
+      "Options" :> {ContentSize -> {900, 350}, BaseStyle -> (FontSize -> 15)},
        "DefaultOptions" :> {}],
-     ImageSizeCache->{1022., {277., 286.}},
+     ImageSizeCache->{32781., {297., 306.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -1052,7 +1070,11 @@ $CellContext`withSolution$$], ImageSize -> 80]}],
    3.8294524585159454`*^9, 3.8294550588880167`*^9, 3.8294552779591866`*^9, 
    3.8294553986298676`*^9, 3.8294554879360423`*^9, 3.829456838387175*^9, 
    3.8294693266696076`*^9, 3.8294715558277507`*^9, {3.8294773498652864`*^9, 
-   3.8294773686938887`*^9}, 3.829477929620184*^9}]
+   3.8294773686938887`*^9}, 3.829477929620184*^9, 3.8294875858132124`*^9, 
+   3.8295375163856697`*^9, 3.8295384732282515`*^9, 3.8295416963058805`*^9, 
+   3.829571351429781*^9, {3.829572094209005*^9, 3.8295721306173415`*^9}, 
+   3.8296351694318795`*^9, {3.8297149736933165`*^9, 3.8297150229608173`*^9}, {
+   3.8297150650292406`*^9, 3.829715104529803*^9}, 3.8297151870462513`*^9}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -1076,8 +1098,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 121, 2, 62, "Subtitle"],
-Cell[703, 26, 487, 8, 46, "Subsection"],
+Cell[579, 22, 121, 2, 61, "Subtitle"],
+Cell[703, 26, 487, 8, 45, "Subsection"],
 Cell[CellGroupData[{
 Cell[1215, 38, 303, 6, 35, "Subsection"],
 Cell[1521, 46, 133, 3, 32, "Item"],
@@ -1099,8 +1121,8 @@ Cell[5832, 183, 291, 6, 58, "Subsection"]
 Cell[CellGroupData[{
 Cell[6160, 194, 95, 1, 62, "Subtitle"],
 Cell[CellGroupData[{
-Cell[6280, 199, 32671, 689, 3820, "Input"],
-Cell[38954, 890, 7604, 164, 583, "Output"]
+Cell[6280, 199, 33291, 697, 3930, "Input"],
+Cell[39574, 898, 8173, 178, 623, "Output"]
 }, Open  ]]
 }, Open  ]]
 }

@@ -46,7 +46,7 @@ maskNumbers[number1_,number2_] := Module[{smallerNumber,unknownVariable, coeffic
 (*these functions return the equation as string *)
 makeString[base_,body1_, body2_, result_]:= Return[HoldForm[Log[base,body1] - Log[base,body2] == result]]
 makeString1[base_,body_, result_]:= Return[HoldForm[Log[base,body] == result]]
-makeString2[base_,body1_,body2_,combinedBody_]:= Return[HoldForm[Log[base,body1] + Log[base,body2] == Log[base,combinedBody]]]
+makeString2[base_,body1_,body2_,combinedBody_]:= Return[HoldForm[Log[base,body1] - Log[base,body2] == Log[base,combinedBody]]]
 
 
 (*this function generates subtraction logarithmic equation *)
